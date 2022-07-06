@@ -21,6 +21,17 @@ import Sudo from "../components/LinuxPrivilegeEscalation/Sudo";
 import NFS from "../components/LinuxPrivilegeEscalation/NFS";
 import LD_PRELOAD from "../components/LinuxPrivilegeEscalation/LD_PRELOAD";
 import TarWildcardInjection from "../components/LinuxPrivilegeEscalation/TarWildcardInjection";
+import BufferOverflowStep1 from "../components/BufferOverflow/Step1";
+import BufferOverflowStep2 from "../components/BufferOverflow/Step2";
+import BufferOverflowStep3 from "../components/BufferOverflow/Step3";
+import BufferOverflowStep4 from "../components/BufferOverflow/Step4";
+import BufferOverflowStep5 from "../components/BufferOverflow/Step5";
+import BufferOverflowStep6 from "../components/BufferOverflow/Step6";
+import BufferOverflowStep7 from "../components/BufferOverflow/Step7";
+import BufferOverflowStep8 from "../components/BufferOverflow/Step8";
+import BufferOverflowStep9 from "../components/BufferOverflow/Step9";
+import BufferOverflowStep10 from "../components/BufferOverflow/Step10";
+import BufferOverflowStep11 from "../components/BufferOverflow/Step11";
 
 const Home = () => {
   return (
@@ -66,6 +77,22 @@ const Home = () => {
             <Typography variant="h3" color="primary.main">
               Windows Privilege Escalation
             </Typography>
+          </Box>
+          <Box mb={5}>
+            <Typography variant="h3" color="primary.main">
+              Buffer Overflow
+            </Typography>
+            <BufferOverflowStep1 title="Step 1 - Fuzzing (Script)" />
+            <BufferOverflowStep2 title="Step 2 - Finding the Offset" />
+            <BufferOverflowStep3 title="Step 3 - Finding the Offset (Script)" />
+            <BufferOverflowStep4 title="Step 4 - Finding the Offset" />
+            <BufferOverflowStep5 title="Step 5 - Overwritting the EIP (Script)" />
+            <BufferOverflowStep6 title="Step 6 - Finding Bad Characters" />
+            <BufferOverflowStep7 title="Step 7 - Finding Bad Characters (Script)" />
+            <BufferOverflowStep8 title="Step 8 - Finding Bad Characters" />
+            <BufferOverflowStep9 title="Step 9 - Jmp" />
+            <BufferOverflowStep10 title="Step 10 - Jmp" />
+            <BufferOverflowStep11 title="Step 11 - Generating Payload (Script)" />
           </Box>
         </Box>
       </Container>
