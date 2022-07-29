@@ -8,13 +8,12 @@ import {
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
 }
 
-const BufferOverflowStep8 = ({ title }: IProps) => {
+const PuTTY = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -34,25 +33,18 @@ const BufferOverflowStep8 = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
+            <Typography variant="h6">Description</Typography>
             <Typography>
-              Within Immunity Debugger, set the working directory of mona:
+              PuTTY is an SSH client commonly found on Windows systems. You can
+              get PuTTY proxy configurations as follows.
             </Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {"!mona config -set workingfolder c:\\mona\\%p"}
-            </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography>Generate a bytearray:</Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {'!mona bytearray -b "\\x00"'}
-            </SyntaxHighlighter>
-            <Box sx={{ m: 4 }} />
-            <Typography>Check for bad characters:</Typography>
+            <Typography variant="h6">Find all SUID Files</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {
-                "!mona compare -f C:\\mona\\oscp\\bytearray.bin -a <ESP address>"
+                'reg query HKEY_CURRENT_USER\\Software\\SimonTatham\\PuTTY\\Sessions /f "Proxy" /s'
               }
             </SyntaxHighlighter>
-            <Image src="/Step8.png" width={634} height={191} />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -60,4 +52,4 @@ const BufferOverflowStep8 = ({ title }: IProps) => {
   );
 };
 
-export default BufferOverflowStep8;
+export default PuTTY;

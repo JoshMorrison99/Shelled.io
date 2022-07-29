@@ -8,13 +8,12 @@ import {
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
 }
 
-const BufferOverflowStep2 = ({ title }: IProps) => {
+const IISConfiguration = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -34,18 +33,18 @@ const BufferOverflowStep2 = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
-            <Typography variant="h6">Offset</Typography>
+            <Typography variant="h6">Description</Typography>
             <Typography>
-              After running the python script in step 1, you should have an idea
-              of where the program crashes at. Use the command below and append
-              an additional 400 characters to it.
+              Internet Information Services (IIS) is the default web server on
+              Windows installations. The configuration files are stored in the
+              following locations.
             </Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {"python buff.py --offset -d 10.10.253.128 -p 1337 -l 1100"}
-            </SyntaxHighlighter>
-            <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Example Output</Typography>
-            <Image src="/Step2.png" height={169} width={1899} />
+            <ul>
+              <li>C:\inetpub\wwwroot\web.config</li>
+              <li>
+                C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config
+              </li>
+            </ul>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -53,4 +52,4 @@ const BufferOverflowStep2 = ({ title }: IProps) => {
   );
 };
 
-export default BufferOverflowStep2;
+export default IISConfiguration;

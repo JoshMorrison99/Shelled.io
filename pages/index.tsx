@@ -28,10 +28,20 @@ import BufferOverflowStep4 from "../components/BufferOverflow/Step4";
 import BufferOverflowStep5 from "../components/BufferOverflow/Step5";
 import BufferOverflowStep6 from "../components/BufferOverflow/Step6";
 import BufferOverflowStep7 from "../components/BufferOverflow/Step7";
-import BufferOverflowStep8 from "../components/BufferOverflow/Step8";
-import BufferOverflowStep9 from "../components/BufferOverflow/Step9";
-import BufferOverflowStep10 from "../components/BufferOverflow/Step10";
-import BufferOverflowStep11 from "../components/BufferOverflow/Step11";
+import WindowsDeploymentServices from "../components/WindowsPrivilegeEscalation/WindowsDeploymentServices";
+import PSHistory from "../components/WindowsPrivilegeEscalation/PowerShellHistory";
+import IISConfiguration from "../components/WindowsPrivilegeEscalation/IISConfiguration";
+import PuTTY from "../components/WindowsPrivilegeEscalation/PuTTY";
+import ScheduledTasks from "../components/WindowsPrivilegeEscalation/ScheduledTasks";
+import UnquotedServicePath from "../components/WindowsPrivilegeEscalation/UnquotedServicePath";
+import PythonLibraryHijacking from "../components/LinuxPrivilegeEscalation/PythonLibraryHijacking";
+import Path from "../components/LinuxPrivilegeEscalation/Path";
+import SeRestoreSeBackup from "../components/WindowsPrivilegeEscalation/SeRestoreSeBackup";
+import AlwaysInstallElevated from "../components/WindowsPrivilegeEscalation/AlwaysInstallElevated";
+import SeTakeOwnership from "../components/WindowsPrivilegeEscalation/SeTakeOwnership";
+import Pwnkit from "../components/LinuxPrivilegeEscalation/Pwnkit";
+import DirtyPipe from "../components/LinuxPrivilegeEscalation/DirtyPipe";
+import BufferOverflowStep0 from "../components/BufferOverflow/Step0";
 
 const Home = () => {
   return (
@@ -71,28 +81,38 @@ const Home = () => {
             <Sudo title="Sudo" />
             <NFS title="NFS" />
             <LD_PRELOAD title="LD_PRELOAD" />
+            <Path title="$PATH" />
             <TarWildcardInjection title="Tar Wildcard Injection" />
+            <PythonLibraryHijacking title="Python Library Hijacking" />
+            <Pwnkit title="Pwnkit - CVE-2021-4034" />
+            <DirtyPipe title="DirtyPipe - CVE-2022-0847" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
               Windows Privilege Escalation
             </Typography>
+            <WindowsDeploymentServices title="Windows Deployment Services" />
+            <PSHistory title="PowerShell History" />
+            <IISConfiguration title="IIS Configuration" />
+            <PuTTY title="PuTTY" />
+            <ScheduledTasks title="Scheduled Tasks" />
+            <UnquotedServicePath title="Unquoted Service Path" />
+            <SeRestoreSeBackup title="SeBackup & SeRestore" />
+            <AlwaysInstallElevated title="AlwaysInstallElevated" />
+            <SeTakeOwnership title="SeTakeOwnership" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
               Buffer Overflow
             </Typography>
-            <BufferOverflowStep1 title="Step 1 - Fuzzing (Script)" />
-            <BufferOverflowStep2 title="Step 2 - Finding the Offset" />
-            <BufferOverflowStep3 title="Step 3 - Finding the Offset (Script)" />
-            <BufferOverflowStep4 title="Step 4 - Finding the Offset" />
-            <BufferOverflowStep5 title="Step 5 - Overwritting the EIP (Script)" />
-            <BufferOverflowStep6 title="Step 6 - Finding Bad Characters" />
-            <BufferOverflowStep7 title="Step 7 - Finding Bad Characters (Script)" />
-            <BufferOverflowStep8 title="Step 8 - Finding Bad Characters" />
-            <BufferOverflowStep9 title="Step 9 - Jmp" />
-            <BufferOverflowStep10 title="Step 10 - Jmp" />
-            <BufferOverflowStep11 title="Step 11 - Generating Payload (Script)" />
+            <BufferOverflowStep0 title="Step 0 - Download Script" />
+            <BufferOverflowStep1 title="Step 1 - Fuzzing" />
+            <BufferOverflowStep2 title="Step 2 - Finding the Offset by Creating Pattern" />
+            <BufferOverflowStep3 title="Step 3 - Finding the Offset by Querying Pattern" />
+            <BufferOverflowStep4 title="Step 4 - Finding Bad Characters by Sending Bytearray" />
+            <BufferOverflowStep5 title="Step 5 - Finding Bad Characters by Querying Bytearray" />
+            <BufferOverflowStep6 title="Step 6 - Finding Jump Point" />
+            <BufferOverflowStep7 title="Step 7 - Exploiting" />
           </Box>
         </Box>
       </Container>

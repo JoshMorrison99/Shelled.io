@@ -8,13 +8,12 @@ import {
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
 }
 
-const BufferOverflowStep2 = ({ title }: IProps) => {
+const PSHistory = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -34,18 +33,25 @@ const BufferOverflowStep2 = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
-            <Typography variant="h6">Offset</Typography>
+            <Typography variant="h6">Description</Typography>
             <Typography>
-              After running the python script in step 1, you should have an idea
-              of where the program crashes at. Use the command below and append
-              an additional 400 characters to it.
+              Whenever a user runs a command using Powershell, it gets stored
+              into a file that keeps a memory of past commands.
             </Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {"python buff.py --offset -d 10.10.253.128 -p 1337 -l 1100"}
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Command Prompt</Typography>
+            <SyntaxHighlighter className="syntax" language="powershell">
+              {
+                "type %userprofile%\\AppData\\Roaming\\Microsoft\\Windows\\PowerShell\\PSReadline\\ConsoleHost_history.txt"
+              }
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Example Output</Typography>
-            <Image src="/Step2.png" height={169} width={1899} />
+            <Typography variant="h6">PowerShell</Typography>
+            <SyntaxHighlighter className="syntax" language="powershell">
+              {
+                "type $Env:userprofile\\AppData\\Roaming\\Microsoft\\Windows\\PowerShell\\PSReadline\\ConsoleHost_history.txt"
+              }
+            </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -53,4 +59,4 @@ const BufferOverflowStep2 = ({ title }: IProps) => {
   );
 };
 
-export default BufferOverflowStep2;
+export default PSHistory;

@@ -8,13 +8,12 @@ import {
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
 }
 
-const BufferOverflowStep5 = ({ title }: IProps) => {
+const Pwnkit = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -34,25 +33,37 @@ const BufferOverflowStep5 = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
+            <Typography variant="h6">Description</Typography>
             <Typography>
-              Within Immunity Debugger, set the working directory of mona:
+              Pwnkit (CVE-2021-4034) is a Local Privilege Escalation
+              vulnerability, located in the Polkit's (PolicyKit) pkexec
+              component installed by default on almost every major distribution
+              of the Linux operating system.
             </Typography>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 1</Typography>
+            <Typography>
+              Copy{" "}
+              <a
+                target="_blank"
+                href="https://github.com/arthepsy/CVE-2021-4034"
+              >
+                cve-2021-4034-poc.c
+              </a>{" "}
+              to machine.
+            </Typography>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 2</Typography>
+            <Typography>Compile cve-2021-4034-poc.c</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"!mona config -set workingfolder c:\\mona\\%p"}
+              {"gcc cve-2021-4034-poc.c -o exploit"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography>Generate a bytearray:</Typography>
+            <Typography variant="h6">Step 3</Typography>
+            <Typography>Run the exploit</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {'!mona bytearray -b "\\x00"'}
+              {"./exploit"}
             </SyntaxHighlighter>
-            <Box sx={{ m: 4 }} />
-            <Typography>Check for bad characters:</Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {
-                "!mona compare -f C:\\mona\\oscp\\bytearray.bin -a <ESP address>"
-              }
-            </SyntaxHighlighter>
-            <Image src="/Step5.png" width={634} height={191} />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -60,4 +71,4 @@ const BufferOverflowStep5 = ({ title }: IProps) => {
   );
 };
 
-export default BufferOverflowStep5;
+export default Pwnkit;

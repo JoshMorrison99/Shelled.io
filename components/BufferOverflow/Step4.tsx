@@ -34,18 +34,19 @@ const BufferOverflowStep4 = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
-            <Typography variant="h6">Pattern Offset</Typography>
+            <Typography variant="h6">Send Bad Characters</Typography>
             <Typography>
-              This will tell you exactly where the EIP was overwritten.
+              The command below will send a bytearray to the program, we can
+              then use mona.py to determine which characters are bad characters.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {
-                "/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -q {EIP}"
-              }
+              {"python buff.py --chars -d 10.10.253.128 -p 1337 -o 634"}
             </SyntaxHighlighter>
-            <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Example Output</Typography>
-            <Image src="/Step4.png" height={67} width={653} />
+            <Box sx={{ m: 2 }} />
+            <Typography>
+              After sending the payload, check that the EIP register is equal to
+              42424242 (all B's). Otherwise your offset value is incorrect.
+            </Typography>
           </Typography>
         </AccordionDetails>
       </Accordion>

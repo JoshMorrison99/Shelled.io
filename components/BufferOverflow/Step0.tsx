@@ -14,7 +14,7 @@ interface IProps {
   title: string;
 }
 
-const BufferOverflowStep2 = ({ title }: IProps) => {
+const BufferOverflowStep0 = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -34,18 +34,18 @@ const BufferOverflowStep2 = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
-            <Typography variant="h6">Offset</Typography>
+            <Typography variant="h6">Download Python Script</Typography>
             <Typography>
-              After running the python script in step 1, you should have an idea
-              of where the program crashes at. Use the command below and append
-              an additional 400 characters to it.
+              I made a simple python script to make exploiting buffer overflows
+              simpler. Download the script{" "}
+              <a
+                target="_blank"
+                href="https://github.com/JoshMorrison99/BufferOverflowToolkit/blob/main/buff.py"
+              >
+                here
+              </a>
+              .
             </Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {"python buff.py --offset -d 10.10.253.128 -p 1337 -l 1100"}
-            </SyntaxHighlighter>
-            <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Example Output</Typography>
-            <Image src="/Step2.png" height={169} width={1899} />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -53,4 +53,4 @@ const BufferOverflowStep2 = ({ title }: IProps) => {
   );
 };
 
-export default BufferOverflowStep2;
+export default BufferOverflowStep0;
