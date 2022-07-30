@@ -8,11 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
+    runs-on: self-hosted
 
     steps:
       - uses: actions/checkout@v3
