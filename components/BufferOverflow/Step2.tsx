@@ -45,7 +45,7 @@ const BufferOverflowStep2 = ({ title }: IProps) => {
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Example Output</Typography>
-            <Image src="/Step2.png" height={169} width={1899} />
+            <Image src="/Step2.png" height={169} width={1899} priority={true} />
           </Typography>
         </AccordionDetails>
       </Accordion>

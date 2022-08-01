@@ -53,7 +53,7 @@ const Path = ({ title }: IProps) => {
               </Typography>
               .
             </Typography>
-            <Image src="/path.png" height={71} width={919} />
+            <Image src="/path.png" height={71} width={919} priority={true} />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
             <Typography>

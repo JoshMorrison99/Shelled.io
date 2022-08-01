@@ -44,7 +44,7 @@ const NFS = ({ title }: IProps) => {
               can usually be read by users.
             </Typography>
             <Box sx={{ m: 4 }} />
-            <Image src="/NFS.png" width={772} height={346} />
+            <Image src="/NFS.png" width={772} height={346} priority={true} />
             <Typography>
               The critical element for this privilege escalation vector is the{" "}
               <Typography display="inline" className="highlight">

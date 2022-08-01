@@ -48,7 +48,7 @@ const BufferOverflowStep7 = ({ title }: IProps) => {
               Change the payload variable in the payload function of buff.py to
               the output of the command.
             </Typography>
-            <Image src="/Step7.png" width={639} height={504} />
+            <Image src="/Step7.png" width={639} height={504} priority={true} />
             <Box sx={{ m: 4 }} />
             <Typography>
               Lastly, start a netcat listener on the port specified in the

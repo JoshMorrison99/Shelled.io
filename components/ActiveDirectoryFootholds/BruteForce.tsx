@@ -13,7 +13,7 @@ interface IProps {
   title: string;
 }
 
-const BufferOverflowStep4 = ({ title }: IProps) => {
+const BruteForce = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -33,19 +33,22 @@ const BufferOverflowStep4 = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
-            <Typography variant="h6">Send Bad Characters</Typography>
+            <Typography variant="h6">Description</Typography>
             <Typography>
-              The command below will send a bytearray to the program, we can
-              then use mona.py to determine which characters are bad characters.
+              We can enumerate usernames with the tool Kerbrute. It is helpful
+              to generate a wordlist from usernames on the website and then
+              create permutations on those names with my tool{" "}
+              <a href="https://github.com/JoshMorrison99/UsernamePermutations">
+                UserPerm
+              </a>
+              .
             </Typography>
+
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Usage</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"python buff.py --chars -d 10.10.253.128 -p 1337 -o 634"}
+              {"kerbrute userenum -d <DOMAIN> domain_users.txt -dc <IP>"}
             </SyntaxHighlighter>
-            <Box sx={{ m: 2 }} />
-            <Typography>
-              After sending the payload, check that the EIP register is equal to
-              42424242 (all B's). Otherwise your offset value is incorrect.
-            </Typography>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -53,4 +56,4 @@ const BufferOverflowStep4 = ({ title }: IProps) => {
   );
 };
 
-export default BufferOverflowStep4;
+export default BruteForce;

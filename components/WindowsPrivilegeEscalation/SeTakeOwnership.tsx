@@ -64,13 +64,23 @@ const SeTakeOwnership = ({ title }: IProps) => {
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 4</Typography>
             <Typography>Lock the screen.</Typography>
-            <Image src="/takeownership1.png" height={408} width={264} />
+            <Image
+              src="/takeownership1.png"
+              height={408}
+              width={264}
+              priority={true}
+            />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 5</Typography>
             <Typography>
               Click on "Ease of Access" button to launch cmd as System.
             </Typography>
-            <Image src="/takeownership2.png" height={426} width={700} />
+            <Image
+              src="/takeownership2.png"
+              height={426}
+              width={700}
+              priority={true}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>

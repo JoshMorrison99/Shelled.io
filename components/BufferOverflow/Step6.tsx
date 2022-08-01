@@ -71,7 +71,7 @@ const BufferOverflowStep6 = ({ title }: IProps) => {
               The result displays all the `jmp esp` instructions with addresses
               that don't contain any of the bad characters.
             </Typography>
-            <Image src="/Step6.png" height={116} width={207} />
+            <Image src="/Step6.png" height={116} width={207} priority={true} />
             <Box sx={{ m: 2 }} />
             <Typography>
               Choose one of the addresses from the result of jmp esp. Note: You

@@ -14,7 +14,7 @@ interface IProps {
   title: string;
 }
 
-const BufferOverflowStep5 = ({ title }: IProps) => {
+const DCSyncAttack = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -34,25 +34,36 @@ const BufferOverflowStep5 = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
+            <Typography variant="h6">Requirements</Typography>
             <Typography>
-              Within Immunity Debugger, set the working directory of mona:
+              The account needs to have GetChanges and GetChangesAll
+              permissions.
+            </Typography>
+            <Image src="/DCSync.png" height={191} width={467} priority={true} />
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Description</Typography>
+            <Typography>
+              DCSync Attack uses commands in the Directory Replication Service
+              Remote Protocol (MS-DRSR) to simulate the behaviour of a domain
+              controller and ask other domain controllers to replicate
+              information.
+            </Typography>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 1</Typography>
+            <Typography>
+              Use Secretsdump.py to get the Administrator's hash.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"!mona config -set workingfolder c:\\mona\\%p"}
+              {"secretsdump.py {DOMAIN}/{USER}@{IP}"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography>Generate a bytearray:</Typography>
+            <Typography variant="h6">Step 2</Typography>
+            <Typography>
+              Perform a Pass-the-Hash attack to login as Administrator.
+            </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {'!mona bytearray -b "\\x00"'}
+              {"evil-winrm -H {NTLM_HASH} -u Administrator -i {IP}"}
             </SyntaxHighlighter>
-            <Box sx={{ m: 4 }} />
-            <Typography>Check for bad characters:</Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {
-                "!mona compare -f C:\\mona\\oscp\\bytearray.bin -a <ESP address>"
-              }
-            </SyntaxHighlighter>
-            <Image src="/Step5.png" width={634} height={191} priority={true} />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -60,4 +71,4 @@ const BufferOverflowStep5 = ({ title }: IProps) => {
   );
 };
 
-export default BufferOverflowStep5;
+export default DCSyncAttack;

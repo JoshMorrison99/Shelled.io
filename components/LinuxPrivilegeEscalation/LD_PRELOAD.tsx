@@ -49,7 +49,12 @@ const LD_PRELOAD = ({ title }: IProps) => {
             <Typography>
               Check for LD_PRELOAD (with the env_keep option)
             </Typography>
-            <Image src="/LD_PRELOAD.png" width={498} height={161} />
+            <Image
+              src="/LD_PRELOAD.png"
+              width={498}
+              height={161}
+              priority={true}
+            />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
             <Typography>Write a simple C code program.</Typography>

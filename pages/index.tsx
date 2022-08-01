@@ -42,6 +42,10 @@ import SeTakeOwnership from "../components/WindowsPrivilegeEscalation/SeTakeOwne
 import Pwnkit from "../components/LinuxPrivilegeEscalation/Pwnkit";
 import DirtyPipe from "../components/LinuxPrivilegeEscalation/DirtyPipe";
 import BufferOverflowStep0 from "../components/BufferOverflow/Step0";
+import AS_REP_Roasting from "../components/ActiveDirectoryFootholds/AS-REP-Roasting";
+import BruteForce from "../components/ActiveDirectoryFootholds/BruteForce";
+import DCSyncAttack from "../components/ActiveDirectoryPrivilegeEscalation/DCSyncAttack";
+import WriteDACL from "../components/ActiveDirectoryPrivilegeEscalation/WriteDACL";
 
 const Home = () => {
   return (
@@ -100,6 +104,20 @@ const Home = () => {
             <SeRestoreSeBackup title="SeBackup & SeRestore" />
             <AlwaysInstallElevated title="AlwaysInstallElevated" />
             <SeTakeOwnership title="SeTakeOwnership" />
+          </Box>
+          <Box mb={5}>
+            <Typography variant="h3" color="primary.main">
+              Active Directory Footholds
+            </Typography>
+            <AS_REP_Roasting title="AS-REP Roasting" />
+            <BruteForce title="Brute Force Kerberos Pre-Authentication" />
+          </Box>
+          <Box mb={5}>
+            <Typography variant="h3" color="primary.main">
+              Active Directory Privilege Escalation
+            </Typography>
+            <DCSyncAttack title="DCSync Attack" />
+            <WriteDACL title="WriteDACL Permission" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
