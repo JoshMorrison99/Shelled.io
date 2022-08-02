@@ -46,6 +46,7 @@ import AS_REP_Roasting from "../components/ActiveDirectoryFootholds/AS-REP-Roast
 import BruteForce from "../components/ActiveDirectoryFootholds/BruteForce";
 import DCSyncAttack from "../components/ActiveDirectoryPrivilegeEscalation/DCSyncAttack";
 import WriteDACL from "../components/ActiveDirectoryPrivilegeEscalation/WriteDACL";
+import Kerberoasting from "../components/ActiveDirectoryPrivilegeEscalation/Kerberoasting";
 
 const Home = () => {
   return (
@@ -118,6 +119,7 @@ const Home = () => {
             </Typography>
             <DCSyncAttack title="DCSync Attack" />
             <WriteDACL title="WriteDACL Permission" />
+            <Kerberoasting title="Kerberoasting" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
