@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: echo $PATH
+      - run: export PATH=$PATH:/usr/local:/usr/local/bin/pm2
       - run: npm install
       - run: npm run build
       - run: pm2 stop 0
