@@ -16,10 +16,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: ls
+      - run: sudo npm install -g pm2
       - run: npm install
       - run: npm run build
-      - run: node pm2 stop 0
-      - run: node pm2 start 0
-      - run: node pm2 save
+      - run: pm2 stop 0
+      - run: pm2 start 0
+      - run: pm2 save
       - run: sudo service nginx restart
