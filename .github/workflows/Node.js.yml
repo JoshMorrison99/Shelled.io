@@ -19,6 +19,7 @@ jobs:
       - run: export PATH=$PATH:/usr/local/bin
       - run: echo $PATH
       - run: ls /usr/local/bin
+      - run: which pm2
       - run: npm install
       - run: npm run build
       - run: node pm2 stop 0
