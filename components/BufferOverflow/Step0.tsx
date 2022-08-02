@@ -41,6 +41,7 @@ const BufferOverflowStep0 = ({ title }: IProps) => {
               <a
                 target="_blank"
                 href="https://github.com/JoshMorrison99/BufferOverflowToolkit/blob/main/buff.py"
+                rel="noreferrer"
               >
                 here
               </a>

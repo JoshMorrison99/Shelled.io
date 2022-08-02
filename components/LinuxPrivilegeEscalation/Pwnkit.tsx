@@ -47,6 +47,7 @@ const Pwnkit = ({ title }: IProps) => {
               <a
                 target="_blank"
                 href="https://github.com/arthepsy/CVE-2021-4034"
+                rel="noreferrer"
               >
                 cve-2021-4034-poc.c
               </a>{" "}

@@ -49,7 +49,11 @@ const DirtyPipe = ({ title }: IProps) => {
             <Typography variant="h6">Step 1</Typography>
             <Typography>
               Copy{" "}
-              <a target="_blank" href="https://haxx.in/files/dirtypipez.c">
+              <a
+                target="_blank"
+                href="https://haxx.in/files/dirtypipez.c"
+                rel="noreferrer"
+              >
                 CVE-2022-0847.c
               </a>{" "}
               to the machine.
