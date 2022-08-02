@@ -19,6 +19,8 @@ jobs:
           cache: "npm"
       - run: npm install
       - run: npm run build
+      - run: whoami
+      - run: pwd
       - run: chmod +x ./pm2_runner.sh
       - run: bash ./pm2_runner.sh
       - run: pm2 stop 0
