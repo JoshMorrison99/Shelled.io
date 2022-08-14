@@ -47,6 +47,11 @@ import BruteForce from "../components/ActiveDirectoryFootholds/BruteForce";
 import DCSyncAttack from "../components/ActiveDirectoryPrivilegeEscalation/DCSyncAttack";
 import WriteDACL from "../components/ActiveDirectoryPrivilegeEscalation/WriteDACL";
 import Kerberoasting from "../components/ActiveDirectoryPrivilegeEscalation/Kerberoasting";
+import DNSAdmins from "../components/ActiveDirectoryPrivilegeEscalation/DNSAdmins";
+import DockerGroup from "../components/LinuxPrivilegeEscalation/DockerGroup";
+import ForceChangePassword from "../components/ActiveDirectoryPrivilegeEscalation/ForceChangePassword";
+import GenericWrite from "../components/ActiveDirectoryPrivilegeEscalation/GenericWrite";
+import SeImpersonatePrivilege from "../components/WindowsPrivilegeEscalation/SeImpersonatePrivilege";
 
 const Home = () => {
   return (
@@ -89,6 +94,7 @@ const Home = () => {
             <Path title="$PATH" />
             <TarWildcardInjection title="Tar Wildcard Injection" />
             <PythonLibraryHijacking title="Python Library Hijacking" />
+            <DockerGroup title="Docker Group" />
             <Pwnkit title="Pwnkit - CVE-2021-4034" />
             <DirtyPipe title="DirtyPipe - CVE-2022-0847" />
           </Box>
@@ -105,6 +111,7 @@ const Home = () => {
             <SeRestoreSeBackup title="SeBackup & SeRestore" />
             <AlwaysInstallElevated title="AlwaysInstallElevated" />
             <SeTakeOwnership title="SeTakeOwnership" />
+            <SeImpersonatePrivilege title="SeImpersonatePrivilege with PrintSpoofer" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
@@ -119,7 +126,10 @@ const Home = () => {
             </Typography>
             <DCSyncAttack title="DCSync Attack" />
             <WriteDACL title="WriteDACL Permission" />
+            <ForceChangePassword title="ForceChangePassword Permission" />
+            <GenericWrite title="GenericWrite Permission" />
             <Kerberoasting title="Kerberoasting" />
+            <DNSAdmins title="DNSAdmins" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
