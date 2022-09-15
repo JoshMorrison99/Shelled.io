@@ -76,6 +76,22 @@ const LXD = ({ title }: IProps) => {
               You now have root priviledges and the whole filesystem is mounted
               in /mnt/root/
             </Typography>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Errors</Typography>
+            <Typography>
+              If you get the error: `No storage pool found. Please create a new
+              storage pool.`
+            </Typography>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {"lxd init"}
+            </SyntaxHighlighter>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Note</Typography>
+            <Typography>
+              Since lxd is a containter, the privesc involves mounting the
+              filesystem to it. To access the root flag, you need to access the
+              entire file system through `/mnt`
+            </Typography>
           </Typography>
         </AccordionDetails>
       </Accordion>

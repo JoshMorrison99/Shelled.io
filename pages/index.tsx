@@ -52,6 +52,9 @@ import DockerGroup from "../components/LinuxPrivilegeEscalation/DockerGroup";
 import ForceChangePassword from "../components/ActiveDirectoryPrivilegeEscalation/ForceChangePassword";
 import GenericWrite from "../components/ActiveDirectoryPrivilegeEscalation/GenericWrite";
 import SeImpersonatePrivilege from "../components/WindowsPrivilegeEscalation/SeImpersonatePrivilege";
+import ADM from "../components/LinuxPrivilegeEscalation/adm";
+import MozillaComponent from "../components/LinuxPrivilegeEscalation/MozillaComponent";
+import OpenSSL from "../components/LinuxPrivilegeEscalation/OpenSSL_Capabilities";
 
 const Home = () => {
   return (
@@ -94,6 +97,9 @@ const Home = () => {
             <Path title="$PATH" />
             <TarWildcardInjection title="Tar Wildcard Injection" />
             <PythonLibraryHijacking title="Python Library Hijacking" />
+            <MozillaComponent title="Mozilla Profile" />
+            <OpenSSL title="OpenSSL Capabilities" />
+            <ADM title="ADM Group" />
             <DockerGroup title="Docker Group" />
             <Pwnkit title="Pwnkit - CVE-2021-4034" />
             <DirtyPipe title="DirtyPipe - CVE-2022-0847" />
