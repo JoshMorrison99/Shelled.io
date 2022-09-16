@@ -56,6 +56,7 @@ import ADM from "../components/LinuxPrivilegeEscalation/adm";
 import MozillaComponent from "../components/LinuxPrivilegeEscalation/MozillaComponent";
 import OpenSSL from "../components/LinuxPrivilegeEscalation/OpenSSL_Capabilities";
 import GenericWriteOnGPO from "../components/ActiveDirectoryPrivilegeEscalation/GenericWriteOnGPO";
+import RIDCycling from "../components/ActiveDirectoryFootholds/RIDCycling";
 
 const Home = () => {
   return (
@@ -126,6 +127,7 @@ const Home = () => {
             </Typography>
             <AS_REP_Roasting title="AS-REP Roasting" />
             <BruteForce title="Brute Force Kerberos Pre-Authentication" />
+            <RIDCycling title="RID Cycling" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
