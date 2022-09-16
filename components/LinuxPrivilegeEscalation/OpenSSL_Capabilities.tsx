@@ -36,10 +36,19 @@ const OpenSSL = ({ title }: IProps) => {
           >
             <Typography variant="h6">Step 1</Typography>
             <Typography>
-              Check if `Openssl` has capabilities. Normally,
-              `https://gtfobin.github.io` would have a privesc like this, but it
-              does not. Full exploit can be followed here:
-              https://chaudhary1337.github.io/p/how-to-openssl-cap_setuid-ep-privesc-exploit/
+              Check if{" "}
+              <Typography display="inline" className="highlight">
+                Openssl
+              </Typography>{" "}
+              has capabilities. Normally,{" "}
+              <Typography display="inline" className="highlight">
+                https://gtfobins.github.io
+              </Typography>{" "}
+              would have a privesc like this, but it does not. Full exploit can
+              be followed here:{" "}
+              <Typography display="inline" className="highlight">
+                https://chaudhary1337.github.io/p/how-to-openssl-cap_setuid-ep-privesc-exploit/
+              </Typography>
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {"getcap -r / 2>/dev/null"}
@@ -53,7 +62,14 @@ const OpenSSL = ({ title }: IProps) => {
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
             <Typography>
-              We will need `#include &ltopenssl/engine.h&gt` header and `gcc`
+              We will need{" "}
+              <Typography display="inline" className="highlight">
+                #include &lt;openssl/engine.h&gt;
+              </Typography>{" "}
+              header and{" "}
+              <Typography display="inline" className="highlight">
+                gcc
+              </Typography>{" "}
               installed on your attacker system.
             </Typography>
             <Box sx={{ m: 4 }} />

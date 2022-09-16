@@ -50,11 +50,12 @@ import Kerberoasting from "../components/ActiveDirectoryPrivilegeEscalation/Kerb
 import DNSAdmins from "../components/ActiveDirectoryPrivilegeEscalation/DNSAdmins";
 import DockerGroup from "../components/LinuxPrivilegeEscalation/DockerGroup";
 import ForceChangePassword from "../components/ActiveDirectoryPrivilegeEscalation/ForceChangePassword";
-import GenericWrite from "../components/ActiveDirectoryPrivilegeEscalation/GenericWrite";
+import GenericWriteOnGroup from "../components/ActiveDirectoryPrivilegeEscalation/GenericWriteOnGroup";
 import SeImpersonatePrivilege from "../components/WindowsPrivilegeEscalation/SeImpersonatePrivilege";
 import ADM from "../components/LinuxPrivilegeEscalation/adm";
 import MozillaComponent from "../components/LinuxPrivilegeEscalation/MozillaComponent";
 import OpenSSL from "../components/LinuxPrivilegeEscalation/OpenSSL_Capabilities";
+import GenericWriteOnGPO from "../components/ActiveDirectoryPrivilegeEscalation/GenericWriteOnGPO";
 
 const Home = () => {
   return (
@@ -133,7 +134,8 @@ const Home = () => {
             <DCSyncAttack title="DCSync Attack" />
             <WriteDACL title="WriteDACL Permission" />
             <ForceChangePassword title="ForceChangePassword Permission" />
-            <GenericWrite title="GenericWrite Permission" />
+            <GenericWriteOnGroup title="GenericWrite Permission on Group" />
+            <GenericWriteOnGPO title="GenericWrite Permission on GPO" />
             <Kerberoasting title="Kerberoasting" />
             <DNSAdmins title="DNSAdmins" />
           </Box>

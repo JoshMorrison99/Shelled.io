@@ -14,7 +14,7 @@ interface IProps {
   title: string;
 }
 
-const GenericWrite = ({ title }: IProps) => {
+const GenericWriteOnGroup = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -60,4 +60,4 @@ const GenericWrite = ({ title }: IProps) => {
   );
 };
 
-export default GenericWrite;
+export default GenericWriteOnGroup;
