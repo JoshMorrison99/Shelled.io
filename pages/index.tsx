@@ -57,6 +57,7 @@ import MozillaComponent from "../components/LinuxPrivilegeEscalation/MozillaComp
 import OpenSSL from "../components/LinuxPrivilegeEscalation/OpenSSL_Capabilities";
 import GenericWriteOnGPO from "../components/ActiveDirectoryPrivilegeEscalation/GenericWriteOnGPO";
 import RIDCycling from "../components/ActiveDirectoryFootholds/RIDCycling";
+import PassTheHash from "../components/ActiveDirectoryPrivilegeEscalation/PassTheHash";
 
 const Home = () => {
   return (
@@ -139,6 +140,7 @@ const Home = () => {
             <GenericWriteOnGroup title="GenericWrite Permission on Group" />
             <GenericWriteOnGPO title="GenericWrite Permission on GPO" />
             <Kerberoasting title="Kerberoasting" />
+            <PassTheHash title="Pass the Hash" />
             <DNSAdmins title="DNSAdmins" />
           </Box>
           <Box mb={5}>
