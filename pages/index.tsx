@@ -58,6 +58,7 @@ import OpenSSL from "../components/LinuxPrivilegeEscalation/OpenSSL_Capabilities
 import GenericWriteOnGPO from "../components/ActiveDirectoryPrivilegeEscalation/GenericWriteOnGPO";
 import RIDCycling from "../components/ActiveDirectoryFootholds/RIDCycling";
 import PassTheHash from "../components/ActiveDirectoryPrivilegeEscalation/PassTheHash";
+import SCFFileAttack from "../components/ActiveDirectoryFootholds/SCFFileAttack";
 
 const Home = () => {
   return (
@@ -129,6 +130,7 @@ const Home = () => {
             <AS_REP_Roasting title="AS-REP Roasting" />
             <BruteForce title="Brute Force Kerberos Pre-Authentication" />
             <RIDCycling title="RID Cycling" />
+            <SCFFileAttack title="SCF File Attack" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
