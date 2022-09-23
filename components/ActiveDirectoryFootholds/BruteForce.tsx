@@ -47,7 +47,7 @@ const BruteForce = ({ title }: IProps) => {
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Usage</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"kerbrute userenum -d <DOMAIN> domain_users.txt -dc <IP>"}
+              {"kerbrute userenum -d <DOMAIN> domain_users.txt --dc <IP>"}
             </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
