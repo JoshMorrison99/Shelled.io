@@ -59,6 +59,9 @@ import GenericWriteOnGPO from "../components/ActiveDirectoryPrivilegeEscalation/
 import RIDCycling from "../components/ActiveDirectoryFootholds/RIDCycling";
 import PassTheHash from "../components/ActiveDirectoryPrivilegeEscalation/PassTheHash";
 import SCFFileAttack from "../components/ActiveDirectoryFootholds/SCFFileAttack";
+import CVE_2017_7269 from "../components/WebFootholds/CVE_2017_7269";
+import Churrasco from "../components/WindowsPrivilegeEscalation/Churrasco";
+import SeLoadDriverPrivilege from "../components/WindowsPrivilegeEscalation/SeLoadDriverPrivilege";
 
 const Home = () => {
   return (
@@ -122,6 +125,8 @@ const Home = () => {
             <AlwaysInstallElevated title="AlwaysInstallElevated" />
             <SeTakeOwnership title="SeTakeOwnership" />
             <SeImpersonatePrivilege title="SeImpersonatePrivilege with PrintSpoofer" />
+            <SeLoadDriverPrivilege title="SeLoadDriverPrivilege" />
+            <Churrasco title="Churrasco" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
@@ -144,6 +149,12 @@ const Home = () => {
             <Kerberoasting title="Kerberoasting" />
             <PassTheHash title="Pass the Hash" />
             <DNSAdmins title="DNSAdmins" />
+          </Box>
+          <Box mb={5}>
+            <Typography variant="h3" color="primary.main">
+              Web Footholds
+            </Typography>
+            <CVE_2017_7269 title="CVE-2017-7269" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
