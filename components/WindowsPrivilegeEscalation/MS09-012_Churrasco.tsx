@@ -33,6 +33,9 @@ const MS09_012_Churrasco = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
+            <Typography variant="h6">Requirements</Typography>
+            <Typography>Windows Server 2003 or Windows XP.</Typography>
+            <Box sx={{ m: 4 }} />
             <Typography variant="h6">Description</Typography>
             <Typography>Windows Server 2003 Vulnerability.</Typography>
             <Box sx={{ m: 4 }} />

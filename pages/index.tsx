@@ -63,6 +63,7 @@ import CVE_2017_7269 from "../components/WebFootholds/CVE_2017_7269";
 import MS09_012_Churrasco from "../components/WindowsPrivilegeEscalation/MS09-012_Churrasco";
 import SeLoadDriverPrivilege from "../components/WindowsPrivilegeEscalation/SeLoadDriverPrivilege";
 import MS15_051 from "../components/WindowsPrivilegeEscalation/MS15-051";
+import LAPS_READER from "../components/ActiveDirectoryPrivilegeEscalation/LAPS_READER";
 
 const Home = () => {
   return (
@@ -151,6 +152,7 @@ const Home = () => {
             <Kerberoasting title="Kerberoasting" />
             <PassTheHash title="Pass the Hash" />
             <DNSAdmins title="DNSAdmins" />
+            <LAPS_READER title="LAPS_READER Group" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
