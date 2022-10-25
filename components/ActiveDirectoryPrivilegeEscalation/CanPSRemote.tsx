@@ -14,7 +14,7 @@ interface IProps {
   title: string;
 }
 
-const DCSyncAttack = ({ title }: IProps) => {
+const CanPSRemote = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -34,32 +34,28 @@ const DCSyncAttack = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
-            <Box sx={{ m: 4 }} />
             <Typography variant="h6">Description</Typography>
             <Typography>
-              With GetChanges and GetChangesAll, we can perform a DCSync Attack.
-              A DCSync Attack uses commands in the Directory Replication Service
-              Remote Protocol (MS-DRSR), which is used by Domain Controllers to
-              replicate domain data. DCSync uses MS-DRSR to simulate the
-              behaviour of a domain controller and ask other domain controllers
-              to replicate information.
+              PowerShell Remoting also referred to as PSRemoting or Windows
+              Remote Management (WinRM) access allows you to enter an
+              interactive session with the target computer. If authenticating as
+              a low privilege user, a privilege escalation may allow you to gain
+              high privileges on the system.
             </Typography>
-            <Image src="/DCSync.png" height={191} width={467} priority={true} />
+            <Image
+              src="/canpsremote.png"
+              height={132}
+              width={488}
+              priority={true}
+            />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
             <Typography>
-              Use Secretsdump.py to get the Administrator's hash.
+              Use `evil-winrm` to remote into the computer (you will be prompt
+              for a password).
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"secretsdump.py {DOMAIN}/{USER}@{IP}"}
-            </SyntaxHighlighter>
-            <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 2</Typography>
-            <Typography>
-              Perform a Pass-the-Hash attack to login as Administrator.
-            </Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {"evil-winrm -H {NTLM_HASH} -u Administrator -i {IP}"}
+              {"evil-winrm -i {IP} -u {USER}"}
             </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
@@ -68,4 +64,4 @@ const DCSyncAttack = ({ title }: IProps) => {
   );
 };
 
-export default DCSyncAttack;
+export default CanPSRemote;

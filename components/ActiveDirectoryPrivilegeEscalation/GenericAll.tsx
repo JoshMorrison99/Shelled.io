@@ -14,7 +14,7 @@ interface IProps {
   title: string;
 }
 
-const ForceChangePassword = ({ title }: IProps) => {
+const GenericAll = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -36,29 +36,22 @@ const ForceChangePassword = ({ title }: IProps) => {
           >
             <Typography variant="h6">Description</Typography>
             <Typography>
-              The members of the compromised group have the capability to change
-              the user's password in the other group without knowing that user's
-              current password.
+              This grants us full control over a target object. This privilege
+              allows the trustee to manipulate the target object however they
+              wish. To take control over the user, we can do a{" "}
+              <a href="https://bloodhound.readthedocs.io/en/latest/data-analysis/edges.html#genericall">
+                Targeted Kerberoast Attack
+              </a>{" "}
+              on the user or more simply just change the user's password.
             </Typography>
             <Image
-              src="/ForceChangePassword.png"
-              width={575}
-              height={154}
+              src="/GenericWriteAll.png"
+              width={520}
+              height={183}
               priority={true}
             />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
-            <Typography>
-              If you have ForceChangePassword over a group then you can get a
-              list of user's in that group and choose which user we want to
-              change the password for. If you have ForceChangePassword over a
-              user, then skip to step 2.
-            </Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {'Get-ADGroupMember -Identity "OTHER_GROUP_NAME"'}
-            </SyntaxHighlighter>
-            <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 2</Typography>
             <Typography>Create a new password variable.</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {
@@ -66,7 +59,7 @@ const ForceChangePassword = ({ title }: IProps) => {
               }
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 3</Typography>
+            <Typography variant="h6">Step 2</Typography>
             <Typography>
               Change one of the user's passwords to the password you created.
             </Typography>
@@ -82,4 +75,4 @@ const ForceChangePassword = ({ title }: IProps) => {
   );
 };
 
-export default ForceChangePassword;
+export default GenericAll;

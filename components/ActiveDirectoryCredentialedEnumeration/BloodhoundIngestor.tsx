@@ -8,13 +8,12 @@ import {
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
 }
 
-const ForceChangePassword = ({ title }: IProps) => {
+const BloodHoundIngestor = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -36,44 +35,46 @@ const ForceChangePassword = ({ title }: IProps) => {
           >
             <Typography variant="h6">Description</Typography>
             <Typography>
-              The members of the compromised group have the capability to change
-              the user's password in the other group without knowing that user's
-              current password.
+              You can run bloodhound ingestor from your attacking machine and
+              have the files available to you right away (rather than extracting
+              from Windows machine).
             </Typography>
-            <Image
-              src="/ForceChangePassword.png"
-              width={575}
-              height={154}
-              priority={true}
-            />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
             <Typography>
-              If you have ForceChangePassword over a group then you can get a
-              list of user's in that group and choose which user we want to
-              change the password for. If you have ForceChangePassword over a
-              user, then skip to step 2.
+              Download it from https://github.com/fox-it/BloodHound.py or doing
+              by using pip.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {'Get-ADGroupMember -Identity "OTHER_GROUP_NAME"'}
+              {"pip3 install bloodhound"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
-            <Typography>Create a new password variable.</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {
-                '$Password = ConvertTo-SecureString "Password123!" -AsPlainText -Force'
+                "bloodhound-python -u {USER} -p {PASSWORD} -ns {IP} -d {DOMAIN} -c all"
+              }
+            </SyntaxHighlighter>
+            <Box sx={{ m: 2 }} />
+            <Typography>Example</Typography>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {
+                "bloodhound-python -u svc-alfresco -p s3rvice -ns 10.10.10.161 -d htb.local -c all"
               }
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 3</Typography>
+            <Typography>Start neo4j database.</Typography>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {"sudo neo4j console"}
+            </SyntaxHighlighter>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 4</Typography>
             <Typography>
-              Change one of the user's passwords to the password you created.
+              Start bloodhound and import the data from the bloodhound GUI.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {
-                'Set-ADAccountPassword -Identity "ACCOUNT" -Reset -NewPassword $Password'
-              }
+              {"bloodhound"}
             </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
@@ -82,4 +83,4 @@ const ForceChangePassword = ({ title }: IProps) => {
   );
 };
 
-export default ForceChangePassword;
+export default BloodHoundIngestor;

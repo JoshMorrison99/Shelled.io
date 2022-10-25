@@ -14,7 +14,7 @@ interface IProps {
   title: string;
 }
 
-const ForceChangePassword = ({ title }: IProps) => {
+const SeTakeOwnershipPrivilege = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -36,43 +36,30 @@ const ForceChangePassword = ({ title }: IProps) => {
           >
             <Typography variant="h6">Description</Typography>
             <Typography>
-              The members of the compromised group have the capability to change
-              the user's password in the other group without knowing that user's
-              current password.
+              SeTakeOwnershipPrivilege grants a user the ability to take
+              ownership of any "securable object", meaning Active Directory
+              object, NTFS file/folders, printers, registry keys, services, and
+              processes. For CTF purposes, we can take ownership of
+              `C:\Users\Administrator\Desktop\flag.txt` to read the flag.
             </Typography>
-            <Image
-              src="/ForceChangePassword.png"
-              width={575}
-              height={154}
-              priority={true}
-            />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
             <Typography>
-              If you have ForceChangePassword over a group then you can get a
-              list of user's in that group and choose which user we want to
-              change the password for. If you have ForceChangePassword over a
-              user, then skip to step 2.
+              Use the `takeown` command to take ownership of a file you want to
+              read.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {'Get-ADGroupMember -Identity "OTHER_GROUP_NAME"'}
+              {"takeown /f 'C:\\Users\\Administrator\\Desktop\\flag.txt'"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
-            <Typography>Create a new password variable.</Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {
-                '$Password = ConvertTo-SecureString "Password123!" -AsPlainText -Force'
-              }
-            </SyntaxHighlighter>
-            <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 3</Typography>
             <Typography>
-              Change one of the user's passwords to the password you created.
+              We may not be able to read the file even when we own it. We will
+              need to modify the file ACL using the `icacls` command.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {
-                'Set-ADAccountPassword -Identity "ACCOUNT" -Reset -NewPassword $Password'
+                "icacls 'C:\\Users\\Administrator\\Desktop\\flag.txt' /grant {USER}:F"
               }
             </SyntaxHighlighter>
           </Typography>
@@ -82,4 +69,4 @@ const ForceChangePassword = ({ title }: IProps) => {
   );
 };
 
-export default ForceChangePassword;
+export default SeTakeOwnershipPrivilege;

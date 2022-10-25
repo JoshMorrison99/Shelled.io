@@ -8,13 +8,12 @@ import {
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
 }
 
-const ForceChangePassword = ({ title }: IProps) => {
+const SharpHound = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -36,44 +35,52 @@ const ForceChangePassword = ({ title }: IProps) => {
           >
             <Typography variant="h6">Description</Typography>
             <Typography>
-              The members of the compromised group have the capability to change
-              the user's password in the other group without knowing that user's
-              current password.
+              SharpHound is a Windows tool used to collect data from Active
+              Directory to be used in BloodHound (My prefered method is to use
+              the BloodHound Ingestor since you don't need to transfer files
+              after the data collection process, but SharpHound is useful as
+              well).
             </Typography>
-            <Image
-              src="/ForceChangePassword.png"
-              width={575}
-              height={154}
-              priority={true}
-            />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
             <Typography>
-              If you have ForceChangePassword over a group then you can get a
-              list of user's in that group and choose which user we want to
-              change the password for. If you have ForceChangePassword over a
-              user, then skip to step 2.
+              Download and transfer SharpHound.exe to the victim machine.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {'Get-ADGroupMember -Identity "OTHER_GROUP_NAME"'}
+              {
+                "wget https://github.com/BloodHoundAD/SharpHound/releases/download/v1.1.0/SharpHound-v1.1.0.zip"
+              }
+            </SyntaxHighlighter>
+            <Box sx={{ m: 2 }} />
+            <SyntaxHighlighter className="syntax" language="bash">
+              {"unzip SharpHound-v1.1.0.zip"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
-            <Typography>Create a new password variable.</Typography>
+            <Typography>
+              Use SharpHound to collect data from Active Directory.
+            </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {
-                '$Password = ConvertTo-SecureString "Password123!" -AsPlainText -Force'
-              }
+              {".\\SharpHound.exe -c All --zipfilename {NAME_OF_ZIP}"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 3</Typography>
             <Typography>
-              Change one of the user's passwords to the password you created.
+              Transfer the zip file back to your attacker machine.
+            </Typography>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 4</Typography>
+            <Typography>Start neo4j database.</Typography>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {"sudo neo4j console"}
+            </SyntaxHighlighter>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 5</Typography>
+            <Typography>
+              Start bloodhound and import the data from the bloodhound GUI.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {
-                'Set-ADAccountPassword -Identity "ACCOUNT" -Reset -NewPassword $Password'
-              }
+              {"bloodhound"}
             </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
@@ -82,4 +89,4 @@ const ForceChangePassword = ({ title }: IProps) => {
   );
 };
 
-export default ForceChangePassword;
+export default SharpHound;

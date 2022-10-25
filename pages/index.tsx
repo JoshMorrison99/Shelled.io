@@ -68,6 +68,22 @@ import LLMNR from "../components/ActiveDirectoryFootholds/LLMNR-NBT-NS-Poisoning
 import GetUserswithSMBNullSession from "../components/ActiveDirectoryFootholds/GetUserswithSMBNullSession";
 import GetUserswithLDAPAnonymousBind from "../components/ActiveDirectoryFootholds/GetUserswithLDAPAnonymousBind";
 import PasswordSpraying from "../components/ActiveDirectoryFootholds/PasswordSpraying";
+import PasswordSprayingPE from "../components/ActiveDirectoryPrivilegeEscalation/PasswordSprayingPE";
+import BloodHoundIngestor from "../components/ActiveDirectoryCredentialedEnumeration/BloodhoundIngestor";
+import Snaffler from "../components/ActiveDirectoryCredentialedEnumeration/Snaffler";
+import ACLEnumeration from "../components/ActiveDirectoryCredentialedEnumeration/ACLEnumeration";
+import SharpHound from "../components/ActiveDirectoryCredentialedEnumeration/SharpHound";
+import GenericAll from "../components/ActiveDirectoryPrivilegeEscalation/GenericAll";
+import GenericWriteOnUser from "../components/ActiveDirectoryPrivilegeEscalation/GenericWriteOnUser";
+import CanPSRemote from "../components/ActiveDirectoryPrivilegeEscalation/CanPSRemote";
+import SQLAdmin from "../components/ActiveDirectoryPrivilegeEscalation/SQLAdmin";
+import NoPac from "../components/ActiveDirectoryPrivilegeEscalation/NoPac";
+import PrintNightmare from "../components/ActiveDirectoryPrivilegeEscalation/PrintNightmare";
+import PetitPotam from "../components/ActiveDirectoryPrivilegeEscalation/PetitPotam";
+import SeImpersonateJuicyPotato from "../components/WindowsPrivilegeEscalation/SeImpersonateJuicyPotato";
+import SeAssignPrimaryTokenJuicyPotato from "../components/WindowsPrivilegeEscalation/SeAssignPrimaryTokenJuicyPotato";
+import SeDebugPrivilege from "../components/WindowsPrivilegeEscalation/SeDebugPrivilege";
+import SeTakeOwnershipPrivilege from "../components/WindowsPrivilegeEscalation/SeTakeOwnershipPrivilege";
 
 const Home = () => {
   return (
@@ -129,8 +145,12 @@ const Home = () => {
             <UnquotedServicePath title="Unquoted Service Path" />
             <SeRestoreSeBackup title="SeBackup & SeRestore" />
             <AlwaysInstallElevated title="AlwaysInstallElevated" />
-            <SeTakeOwnership title="SeTakeOwnership" />
-            <SeImpersonatePrivilege title="SeImpersonatePrivilege with PrintSpoofer" />
+            <SeTakeOwnershipPrivilege title="SeTakeOwnershipPrivilege" />
+            <SeTakeOwnership title="SeTakeOwnershipPrivilege RDP" />
+            <SeDebugPrivilege title="SeDebugPrivilege" />
+            <SeImpersonatePrivilege title="SeImpersonatePrivilege PrintSpoofer" />
+            <SeImpersonateJuicyPotato title="SeImpersonatePrivilege JuicyPotato" />
+            <SeAssignPrimaryTokenJuicyPotato title="SeAssignPrimaryToken JuicyPotato" />
             <SeLoadDriverPrivilege title="SeLoadDriverPrivilege" />
             <MS09_012_Churrasco title="MS09-012 Churrasco" />
             <MS15_051 title="MS15-051" />
@@ -150,17 +170,34 @@ const Home = () => {
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
+              Active Directory Credentialed Enumeration
+            </Typography>
+            <BloodHoundIngestor title="BloodHound Ingestor" />
+            <SharpHound title="BloodHound SharpHound" />
+            <ACLEnumeration title="ACL Enumeration" />
+            <Snaffler title="Snaffler" />
+          </Box>
+          <Box mb={5}>
+            <Typography variant="h3" color="primary.main">
               Active Directory Privilege Escalation
             </Typography>
-            <DCSyncAttack title="DCSync Attack" />
-            <WriteDACL title="WriteDACL Permission" />
-            <ForceChangePassword title="ForceChangePassword Permission" />
-            <GenericWriteOnGroup title="GenericWrite Permission on Group" />
-            <GenericWriteOnGPO title="GenericWrite Permission on GPO" />
+            <DCSyncAttack title="GetChanges/GetChangesAll" />
+            <WriteDACL title="WriteDACL over a Domain" />
+            <ForceChangePassword title="ForceChangePassword over a User" />
+            <GenericWriteOnUser title="GenericWrite over a User" />
+            <GenericWriteOnGroup title="GenericWrite over a Group" />
+            <GenericWriteOnGPO title="GenericWrite over a GPO" />
+            <GenericAll title="GenericAll over a User" />
             <Kerberoasting title="Kerberoasting" />
             <PassTheHash title="Pass the Hash" />
             <DNSAdmins title="DNSAdmins" />
             <LAPS_READER title="LAPS_READER Group" />
+            <CanPSRemote title="CanPSRemote" />
+            <SQLAdmin title="SQLAdmin" />
+            <PasswordSprayingPE title="Password Spraying" />
+            <NoPac title="NoPac (Sam the Admin)" />
+            <PrintNightmare title="PrintNightmare" />
+            <PetitPotam title="PetitPotam (MS-EFSRPC)" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">

