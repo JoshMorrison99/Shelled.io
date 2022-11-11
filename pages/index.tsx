@@ -84,6 +84,12 @@ import SeImpersonateJuicyPotato from "../components/WindowsPrivilegeEscalation/S
 import SeAssignPrimaryTokenJuicyPotato from "../components/WindowsPrivilegeEscalation/SeAssignPrimaryTokenJuicyPotato";
 import SeDebugPrivilege from "../components/WindowsPrivilegeEscalation/SeDebugPrivilege";
 import SeTakeOwnershipPrivilege from "../components/WindowsPrivilegeEscalation/SeTakeOwnershipPrivilege";
+import SeBackupPrivilege from "../components/WindowsPrivilegeEscalation/SeBackupPrivilege";
+import EventLogReader from "../components/WindowsPrivilegeEscalation/EventLogReader";
+import ServerOperators from "../components/WindowsPrivilegeEscalation/ServerOperators";
+import ScreenExploit from "../components/LinuxPrivilegeEscalation/Screen";
+import ZoneTransfer from "../components/ActiveDirectoryFootholds/ZoneTransfer";
+import ZeroLogon from "../components/ActiveDirectoryPrivilegeEscalation/ZeroLogon";
 
 const Home = () => {
   return (
@@ -130,6 +136,7 @@ const Home = () => {
             <OpenSSL title="OpenSSL Capabilities" />
             <ADM title="ADM Group" />
             <DockerGroup title="Docker Group" />
+            <ScreenExploit title="Screen" />
             <Pwnkit title="Pwnkit - CVE-2021-4034" />
             <DirtyPipe title="DirtyPipe - CVE-2022-0847" />
           </Box>
@@ -141,17 +148,20 @@ const Home = () => {
             <PSHistory title="PowerShell History" />
             <IISConfiguration title="IIS Configuration" />
             <PuTTY title="PuTTY" />
+            <AlwaysInstallElevated title="AlwaysInstallElevated" />
             <ScheduledTasks title="Scheduled Tasks" />
             <UnquotedServicePath title="Unquoted Service Path" />
-            <SeRestoreSeBackup title="SeBackup & SeRestore" />
-            <AlwaysInstallElevated title="AlwaysInstallElevated" />
+            <EventLogReader title="Event Log Reader" />
+            <ServerOperators title="Server Operators" />
+            <SeLoadDriverPrivilege title="Print Operators - SeLoadDriverPrivilege" />
+            <SeRestoreSeBackup title="Backup Operators - SeBackupPrivilege & SeRestorePrivilege" />
+            <SeBackupPrivilege title="SeBackupPrivilege" />
             <SeTakeOwnershipPrivilege title="SeTakeOwnershipPrivilege" />
             <SeTakeOwnership title="SeTakeOwnershipPrivilege RDP" />
             <SeDebugPrivilege title="SeDebugPrivilege" />
             <SeImpersonatePrivilege title="SeImpersonatePrivilege PrintSpoofer" />
             <SeImpersonateJuicyPotato title="SeImpersonatePrivilege JuicyPotato" />
             <SeAssignPrimaryTokenJuicyPotato title="SeAssignPrimaryToken JuicyPotato" />
-            <SeLoadDriverPrivilege title="SeLoadDriverPrivilege" />
             <MS09_012_Churrasco title="MS09-012 Churrasco" />
             <MS15_051 title="MS15-051" />
           </Box>
@@ -167,6 +177,7 @@ const Home = () => {
             <GetUserswithSMBNullSession title="Get Users with SMB NULL Session" />
             <GetUserswithLDAPAnonymousBind title="Get Users with LDAP Anonymous Bind" />
             <PasswordSpraying title="Password Spraying" />
+            <ZoneTransfer title="Zone Transfer" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
@@ -198,6 +209,7 @@ const Home = () => {
             <NoPac title="NoPac (Sam the Admin)" />
             <PrintNightmare title="PrintNightmare" />
             <PetitPotam title="PetitPotam (MS-EFSRPC)" />
+            <ZeroLogon title="Zero Logon" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">

