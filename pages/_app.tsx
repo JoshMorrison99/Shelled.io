@@ -4,8 +4,19 @@ import { ThemeProvider } from "@mui/material/styles";
 import type { AppProps } from "next/app";
 import CssBaseline from "@mui/material/CssBaseline";
 import Head from "next/head";
+import { useEffect } from 'react';
+import { initGA, logPageView } from '../files/analytics.js';
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+  useEffect(() => {
+    if (!(window as any).GA_INITIALIZED) {
+      initGA();
+      (window as any).GA_INITIALIZED = true;
+    }
+    logPageView();
+  }, []);
+
   return (
     <>
       <Head>

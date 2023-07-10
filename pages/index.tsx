@@ -59,7 +59,7 @@ import GenericWriteOnGPO from "../components/ActiveDirectoryPrivilegeEscalation/
 import RIDCycling from "../components/ActiveDirectoryFootholds/RIDCycling";
 import PassTheHash from "../components/ActiveDirectoryPrivilegeEscalation/PassTheHash";
 import SCFFileAttack from "../components/ActiveDirectoryFootholds/SCFFileAttack";
-import CVE_2017_7269 from "../components/WebFootholds/CVE_2017_7269";
+import CVE_2017_7269 from "../components/BugBountyMethodologies/CVE_2017_7269";
 import MS09_012_Churrasco from "../components/WindowsPrivilegeEscalation/MS09-012_Churrasco";
 import SeLoadDriverPrivilege from "../components/WindowsPrivilegeEscalation/SeLoadDriverPrivilege";
 import MS15_051 from "../components/WindowsPrivilegeEscalation/MS15-051";
@@ -213,9 +213,8 @@ const Home = () => {
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
-              Web Footholds
+              Bug Bounty Methodologies
             </Typography>
-            <CVE_2017_7269 title="CVE-2017-7269" />
           </Box>
           <Box mb={5}>
             <Typography variant="h3" color="primary.main">
