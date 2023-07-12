@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -46,7 +44,7 @@ const GenericWriteOnGPO = ({ title }: IProps) => {
               </Typography>
               .
             </Typography>
-            <Image src="/gpo.png" width={465} height={178} priority={true} />
+            <img src="/gpo.png" width={465} height={178} />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
             <Typography>

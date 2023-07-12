@@ -5,8 +5,6 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
-import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 

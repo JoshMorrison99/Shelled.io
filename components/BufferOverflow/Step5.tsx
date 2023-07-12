@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -52,7 +50,7 @@ const BufferOverflowStep5 = ({ title }: IProps) => {
                 "!mona compare -f C:\\mona\\oscp\\bytearray.bin -a <ESP address>"
               }
             </SyntaxHighlighter>
-            <Image src="/Step5.png" width={634} height={191} priority={true} />
+            <img src="/Step5.png" width={634} height={191}  />
           </Typography>
         </AccordionDetails>
       </Accordion>

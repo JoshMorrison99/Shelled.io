@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -49,7 +47,7 @@ const LAPS_READER = ({ title }: IProps) => {
             <Typography>
               Check if you are part of `LAPS_READER` group
             </Typography>
-            <Image src="/laps_reader.png" width={1298} height={230} />
+            <img src="/laps_reader.png" width={1298} height={230} />
 
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
@@ -64,7 +62,7 @@ const LAPS_READER = ({ title }: IProps) => {
                 "Get-ADComputer -Filter 'ObjectClass -eq \"computer\"' -Property *"
               }
             </SyntaxHighlighter>
-            <Image src="/laps_reader2.png" width={546} height={128} />
+            <img src="/laps_reader2.png" width={546} height={128} />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 3</Typography>
             <Typography>You can run this script.</Typography>
@@ -75,7 +73,7 @@ const LAPS_READER = ({ title }: IProps) => {
             <SyntaxHighlighter className="syntax" language="bash">
               {"python laps.py -u {USER} -p {PASSWORD} -d {DOMAIN}"}
             </SyntaxHighlighter>
-            <Image src="/laps_reader3.png" width={694} height={104} />
+            <img src="/laps_reader3.png" width={694} height={104} />
           </Typography>
         </AccordionDetails>
       </Accordion>

@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -51,7 +49,7 @@ const RIDCycling = ({ title }: IProps) => {
             <SyntaxHighlighter className="syntax" language="bash">
               {"lookupsid.py {USERNAME}@{IP} | grep SidTypeUser"}
             </SyntaxHighlighter>
-            <Image src="/rid.png" width={596} height={198} priority={true} />
+            <img src="/rid.png" width={596} height={198}/>
           </Typography>
         </AccordionDetails>
       </Accordion>

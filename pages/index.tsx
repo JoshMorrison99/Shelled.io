@@ -1,18 +1,11 @@
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
   Container,
-  Divider,
-  Link,
+  Grid,
   Typography,
 } from "@mui/material";
-import Image from "next/image";
 import Box from "@mui/material/Box";
 import styles from "../styles/Home.module.css";
-import Script from "next/script";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import React, { useState } from "react";
+import React from "react";
 import SUID from "../components/LinuxPrivilegeEscalation/SUID";
 import Capabilities from "../components/LinuxPrivilegeEscalation/Capabilities";
 import Cronjobs from "../components/LinuxPrivilegeEscalation/Cronjobs";
@@ -59,7 +52,6 @@ import GenericWriteOnGPO from "../components/ActiveDirectoryPrivilegeEscalation/
 import RIDCycling from "../components/ActiveDirectoryFootholds/RIDCycling";
 import PassTheHash from "../components/ActiveDirectoryPrivilegeEscalation/PassTheHash";
 import SCFFileAttack from "../components/ActiveDirectoryFootholds/SCFFileAttack";
-import CVE_2017_7269 from "../components/BugBountyMethodologies/CVE_2017_7269";
 import MS09_012_Churrasco from "../components/WindowsPrivilegeEscalation/MS09-012_Churrasco";
 import SeLoadDriverPrivilege from "../components/WindowsPrivilegeEscalation/SeLoadDriverPrivilege";
 import MS15_051 from "../components/WindowsPrivilegeEscalation/MS15-051";
@@ -90,6 +82,12 @@ import ServerOperators from "../components/WindowsPrivilegeEscalation/ServerOper
 import ScreenExploit from "../components/LinuxPrivilegeEscalation/Screen";
 import ZoneTransfer from "../components/ActiveDirectoryFootholds/ZoneTransfer";
 import ZeroLogon from "../components/ActiveDirectoryPrivilegeEscalation/ZeroLogon";
+import LinuxCard from "../components/Cards/LinuxPrivilegeEscalation";
+import WindowsCard from "../components/Cards/WindowsPrivilegeEscalation";
+import BufferOverflowCard from "../components/Cards/BufferOverflow";
+import ADFootholdCard from "../components/Cards/ActiveDirectoryFoothold";
+import ADPrivEscCard from "../components/Cards/ActiveDirectoryPrivEsc";
+import ADEnumCard from "../components/Cards/ActiveDirectoryEnumeration";
 
 const Home = () => {
   return (
@@ -118,118 +116,52 @@ const Home = () => {
       </Box>
       <Container>
         <Box sx={{ paddingBottom: "50vh" }}>
-          <Box mb={5}>
+        <Box mb={5}>
             <Typography variant="h3" color="primary.main">
-              Linux Privilege Escalation
-            </Typography>
-            <SUID title="SUID" />
-            <Capabilities title="Capabilities" />
-            <Cronjobs title="Cron Jobs" />
-            <LXD title="LXD" />
-            <Sudo title="Sudo" />
-            <NFS title="NFS" />
-            <LD_PRELOAD title="LD_PRELOAD" />
-            <Path title="$PATH" />
-            <TarWildcardInjection title="Tar Wildcard Injection" />
-            <PythonLibraryHijacking title="Python Library Hijacking" />
-            <MozillaComponent title="Mozilla Profile" />
-            <OpenSSL title="OpenSSL Capabilities" />
-            <ADM title="ADM Group" />
-            <DockerGroup title="Docker Group" />
-            <ScreenExploit title="Screen" />
-            <Pwnkit title="Pwnkit - CVE-2021-4034" />
-            <DirtyPipe title="DirtyPipe - CVE-2022-0847" />
-          </Box>
-          <Box mb={5}>
-            <Typography variant="h3" color="primary.main">
-              Windows Privilege Escalation
-            </Typography>
-            <WindowsDeploymentServices title="Windows Deployment Services" />
-            <PSHistory title="PowerShell History" />
-            <IISConfiguration title="IIS Configuration" />
-            <PuTTY title="PuTTY" />
-            <AlwaysInstallElevated title="AlwaysInstallElevated" />
-            <ScheduledTasks title="Scheduled Tasks" />
-            <UnquotedServicePath title="Unquoted Service Path" />
-            <EventLogReader title="Event Log Reader" />
-            <ServerOperators title="Server Operators" />
-            <SeLoadDriverPrivilege title="Print Operators - SeLoadDriverPrivilege" />
-            <SeRestoreSeBackup title="Backup Operators - SeBackupPrivilege & SeRestorePrivilege" />
-            <SeBackupPrivilege title="SeBackupPrivilege" />
-            <SeTakeOwnershipPrivilege title="SeTakeOwnershipPrivilege" />
-            <SeTakeOwnership title="SeTakeOwnershipPrivilege RDP" />
-            <SeDebugPrivilege title="SeDebugPrivilege" />
-            <SeImpersonatePrivilege title="SeImpersonatePrivilege PrintSpoofer" />
-            <SeImpersonateJuicyPotato title="SeImpersonatePrivilege JuicyPotato" />
-            <SeAssignPrimaryTokenJuicyPotato title="SeAssignPrimaryToken JuicyPotato" />
-            <MS09_012_Churrasco title="MS09-012 Churrasco" />
-            <MS15_051 title="MS15-051" />
-          </Box>
-          <Box mb={5}>
-            <Typography variant="h3" color="primary.main">
-              Active Directory Footholds
-            </Typography>
-            <AS_REP_Roasting title="AS-REP Roasting" />
-            <BruteForce title="Brute Force Kerberos Pre-Authentication" />
-            <RIDCycling title="RID Cycling" />
-            <SCFFileAttack title="SCF File Attack" />
-            <LLMNR title="LLMNR/NBT-NS Poisoning" />
-            <GetUserswithSMBNullSession title="Get Users with SMB NULL Session" />
-            <GetUserswithLDAPAnonymousBind title="Get Users with LDAP Anonymous Bind" />
-            <PasswordSpraying title="Password Spraying" />
-            <ZoneTransfer title="Zone Transfer" />
-          </Box>
-          <Box mb={5}>
-            <Typography variant="h3" color="primary.main">
-              Active Directory Credentialed Enumeration
-            </Typography>
-            <BloodHoundIngestor title="BloodHound Ingestor" />
-            <SharpHound title="BloodHound SharpHound" />
-            <ACLEnumeration title="ACL Enumeration" />
-            <Snaffler title="Snaffler" />
-          </Box>
-          <Box mb={5}>
-            <Typography variant="h3" color="primary.main">
-              Active Directory Privilege Escalation
-            </Typography>
-            <DCSyncAttack title="GetChanges/GetChangesAll" />
-            <WriteDACL title="WriteDACL over a Domain" />
-            <ForceChangePassword title="ForceChangePassword over a User" />
-            <GenericWriteOnUser title="GenericWrite over a User" />
-            <GenericWriteOnGroup title="GenericWrite over a Group" />
-            <GenericWriteOnGPO title="GenericWrite over a GPO" />
-            <GenericAll title="GenericAll over a User" />
-            <Kerberoasting title="Kerberoasting" />
-            <PassTheHash title="Pass the Hash" />
-            <DNSAdmins title="DNSAdmins" />
-            <LAPS_READER title="LAPS_READER Group" />
-            <CanPSRemote title="CanPSRemote" />
-            <SQLAdmin title="SQLAdmin" />
-            <PasswordSprayingPE title="Password Spraying" />
-            <NoPac title="NoPac (Sam the Admin)" />
-            <PrintNightmare title="PrintNightmare" />
-            <PetitPotam title="PetitPotam (MS-EFSRPC)" />
-            <ZeroLogon title="Zero Logon" />
-          </Box>
-          <Box mb={5}>
-            <Typography variant="h3" color="primary.main">
-              Bug Bounty Methodologies
+              Modules
             </Typography>
           </Box>
-          <Box mb={5}>
-            <Typography variant="h3" color="primary.main">
-              Buffer Overflow
-            </Typography>
-            <BufferOverflowStep0 title="Step 0 - Download Script" />
-            <BufferOverflowStep1 title="Step 1 - Fuzzing" />
-            <BufferOverflowStep2 title="Step 2 - Finding the Offset by Creating Pattern" />
-            <BufferOverflowStep3 title="Step 3 - Finding the Offset by Querying Pattern" />
-            <BufferOverflowStep4 title="Step 4 - Finding Bad Characters by Sending Bytearray" />
-            <BufferOverflowStep5 title="Step 5 - Finding Bad Characters by Querying Bytearray" />
-            <BufferOverflowStep6 title="Step 6 - Finding Jump Point" />
-            <BufferOverflowStep7 title="Step 7 - Exploiting" />
-          </Box>
+        <Grid container spacing={4}>
+        <Grid item xs={6}>
+              <LinuxCard />
+              </Grid>
+              <Grid item xs={6}>
+              <WindowsCard/>
+              </Grid>
+              <Grid item xs={6}>
+              <BufferOverflowCard/>
+              </Grid>
+              <Grid item xs={6}>
+              <ADFootholdCard/>
+              </Grid>
+              <Grid item xs={6}>
+              <ADPrivEscCard/>
+              </Grid>
+              <Grid item xs={6}>
+              <ADEnumCard/>
+              </Grid>
+            </Grid>
         </Box>
+        <Box mb={5}>
+            <Typography variant="h3" color="primary.main">
+              Writeups
+            </Typography>
+          </Box>
+        <Grid container spacing={4}>
+        <Grid item xs={6}>
+          <Typography>TODO</Typography>
+        </Grid>
+        </Grid>
+        <Box mb={5}>
+            <Typography variant="h3" color="primary.main">
+              Blogs
+            </Typography>
+          </Box>
+        <Grid container spacing={4}>
+        <Grid item xs={6}>
+          <Typography>TODO</Typography>
+        </Grid>
+        </Grid>
       </Container>
     </Box>
   );

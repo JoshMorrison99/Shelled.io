@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -42,11 +40,10 @@ const SQLAdmin = ({ title }: IProps) => {
               in the context of the SQL Server service account through various
               methods.
             </Typography>
-            <Image
+            <img
               src="/sqladmin.png"
               height={148}
               width={441}
-              priority={true}
             />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
@@ -64,11 +61,10 @@ const SQLAdmin = ({ title }: IProps) => {
             <Typography>
               Type `help` to get a list of available options.
             </Typography>
-            <Image
+            <img
               src="/sqladmin2.png"
               height={213}
               width={730}
-              priority={true}
             />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 4</Typography>

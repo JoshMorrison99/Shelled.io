@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -39,11 +37,10 @@ const GenericWriteOnGroup = ({ title }: IProps) => {
               GenericWrite to a group allows you to directly modify group
               membership of the group.
             </Typography>
-            <Image
+            <img
               src="/genericwrite.png"
               width={448}
               height={118}
-              priority={true}
             />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>

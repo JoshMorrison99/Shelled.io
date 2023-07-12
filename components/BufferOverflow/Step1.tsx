@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -44,7 +42,7 @@ const BufferOverflowStep1 = ({ title }: IProps) => {
             </SyntaxHighlighter>
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Example Output</Typography>
-            <Image src="/Step1.png" height={214} width={608} priority={true} />
+            <img src="/Step1.png" height={214} width={608} />
           </Typography>
         </AccordionDetails>
       </Accordion>

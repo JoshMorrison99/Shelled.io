@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -86,8 +84,8 @@ const DockerGroup = ({ title }: IProps) => {
               </Typography>{" "}
               by removing the root password.
             </Typography>
-            <Image src="/docker1.png" width={271} height={44} priority={true} />
-            <Image src="/docker2.png" width={260} height={44} priority={true} />
+            <img src="/docker1.png" width={271} height={44}  />
+            <img src="/docker2.png" width={260} height={44}  />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 3</Typography>
             <Typography>

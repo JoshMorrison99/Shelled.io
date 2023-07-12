@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -56,7 +54,7 @@ const ZeroLogon = ({ title }: IProps) => {
             <Typography>
               Run nmap to get the Domain Controller's Name
             </Typography>
-            <Image src="/zerologon.png" width={585} height={259} />
+            <img src="/zerologon.png" width={585} height={259} />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
             <Typography>Get this script</Typography>

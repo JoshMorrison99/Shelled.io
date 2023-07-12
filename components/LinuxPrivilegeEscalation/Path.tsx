@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -53,7 +51,7 @@ const Path = ({ title }: IProps) => {
               </Typography>
               .
             </Typography>
-            <Image src="/path.png" height={71} width={919} priority={true} />
+            <img src="/path.png" height={71} width={919} />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
             <Typography>
@@ -86,7 +84,7 @@ const Path = ({ title }: IProps) => {
               </Typography>{" "}
               first.
             </Typography>
-            <Image src="/path2.png" height={55} width={942} />
+            <img src="/path2.png" height={55} width={942} />
           </Typography>
         </AccordionDetails>
       </Accordion>

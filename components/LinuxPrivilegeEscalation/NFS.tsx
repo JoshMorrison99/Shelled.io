@@ -5,8 +5,6 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
-import Image from "next/image";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -44,7 +42,7 @@ const NFS = ({ title }: IProps) => {
               can usually be read by users.
             </Typography>
             <Box sx={{ m: 4 }} />
-            <Image src="/NFS.png" width={772} height={346} priority={true} />
+            <img src="/NFS.png" width={772} height={346} />
             <Typography>
               The critical element for this privilege escalation vector is the{" "}
               <Typography display="inline" className="highlight">

@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -44,7 +42,7 @@ const DCSyncAttack = ({ title }: IProps) => {
               behaviour of a domain controller and ask other domain controllers
               to replicate information.
             </Typography>
-            <Image src="/DCSync.png" height={191} width={467} priority={true} />
+            <img src="/DCSync.png" height={191} width={467} />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
             <Typography>

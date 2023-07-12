@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -48,7 +46,7 @@ const BufferOverflowStep7 = ({ title }: IProps) => {
               Change the payload variable in the payload function of buff.py to
               the output of the command.
             </Typography>
-            <Image src="/Step7.png" width={639} height={504} priority={true} />
+            <img src="/Step7.png" width={639} height={504}  />
             <Box sx={{ m: 4 }} />
             <Typography>
               Lastly, start a netcat listener on the port specified in the

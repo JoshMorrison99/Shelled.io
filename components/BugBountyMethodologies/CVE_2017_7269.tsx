@@ -6,9 +6,7 @@ import {
   Box,
 } from "@mui/material";
 import Link from "next/link";
-import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -39,7 +37,7 @@ const CVE_2017_7269 = ({ title }: IProps) => {
               Must be Windows Server 2003 (IIS 6.0) with WebDAV PROPFIND
               available.
             </Typography>
-            <Image src="/cve_2017_7269.png" width={1030} height={317} />
+            <img src="/cve_2017_7269.png" width={1030} height={317} />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Description</Typography>
             <Typography>

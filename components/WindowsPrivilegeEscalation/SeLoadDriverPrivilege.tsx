@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -44,7 +42,7 @@ const SeLoadDriverPrivilege = ({ title }: IProps) => {
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>
             <Typography>Check if you have SeLoadDriverPrivilege.</Typography>
-            <Image src="/seloaddriver1.png" width={597} height={166} />
+            <img src="/seloaddriver1.png" width={597} height={166} />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>
             <Typography>
@@ -81,7 +79,7 @@ const SeLoadDriverPrivilege = ({ title }: IProps) => {
                 ".\\LoadDriver.exe System\\CurrentControlSet\\MyService {C:\\Users\\Test\\Capcom.sys}"
               }
             </SyntaxHighlighter>
-            <Image src="/seloaddriver2.png" width={975} height={114} />
+            <img src="/seloaddriver2.png" width={975} height={114} />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 6</Typography>
             <Typography>Start a netcat listener on port 4444</Typography>

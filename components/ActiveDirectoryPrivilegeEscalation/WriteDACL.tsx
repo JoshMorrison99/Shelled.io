@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -38,11 +36,10 @@ const WriteDACL = ({ title }: IProps) => {
             <Typography>
               The account needs to have WriteDACL permission.
             </Typography>
-            <Image
+            <img
               src="/writedacl.png"
               height={134}
               width={479}
-              priority={true}
             />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Description</Typography>

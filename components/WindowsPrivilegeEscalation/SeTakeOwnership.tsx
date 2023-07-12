@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -64,22 +62,20 @@ const SeTakeOwnership = ({ title }: IProps) => {
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 4</Typography>
             <Typography>Lock the screen.</Typography>
-            <Image
+            <img
               src="/takeownership1.png"
               height={408}
               width={264}
-              priority={true}
             />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 5</Typography>
             <Typography>
               Click on "Ease of Access" button to launch cmd as System.
             </Typography>
-            <Image
+            <img
               src="/takeownership2.png"
               height={426}
               width={700}
-              priority={true}
             />
           </Typography>
         </AccordionDetails>

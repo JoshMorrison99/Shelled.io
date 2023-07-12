@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -118,18 +116,16 @@ const MozillaComponent = ({ title }: IProps) => {
               . If it does not, copy and paste the folder name from step 5.
             </Typography>
             <Typography>Before</Typography>
-            <Image
+            <img
               src="/mozilla1.png"
               height={362}
               width={503}
-              priority={true}
             />
             <Typography>After</Typography>
-            <Image
+            <img
               src="/mozilla2.png"
               height={369}
               width={496}
-              priority={true}
             />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 8</Typography>

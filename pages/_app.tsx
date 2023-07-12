@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import lightTheme from "../styles/theme/lightTheme";
 import { ThemeProvider } from "@mui/material/styles";
-import type { AppProps } from "next/app";
+import { AppProps } from "next/app";
 import CssBaseline from "@mui/material/CssBaseline";
 import Head from "next/head";
 import { useEffect } from 'react';

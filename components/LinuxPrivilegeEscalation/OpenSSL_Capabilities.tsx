@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -53,11 +51,10 @@ const OpenSSL = ({ title }: IProps) => {
             <SyntaxHighlighter className="syntax" language="bash">
               {"getcap -r / 2>/dev/null"}
             </SyntaxHighlighter>
-            <Image
+            <img
               src="/openssl.png"
               height={109}
               width={479}
-              priority={true}
             />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 2</Typography>

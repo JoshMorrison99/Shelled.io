@@ -5,10 +5,8 @@ import {
   AccordionDetails,
   Box,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -42,11 +40,10 @@ const CanPSRemote = ({ title }: IProps) => {
               a low privilege user, a privilege escalation may allow you to gain
               high privileges on the system.
             </Typography>
-            <Image
+            <img
               src="/canpsremote.png"
               height={132}
               width={488}
-              priority={true}
             />
             <Box sx={{ m: 4 }} />
             <Typography variant="h6">Step 1</Typography>

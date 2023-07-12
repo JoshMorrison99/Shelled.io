@@ -4,9 +4,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   Box,
-  Divider,
 } from "@mui/material";
-import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
