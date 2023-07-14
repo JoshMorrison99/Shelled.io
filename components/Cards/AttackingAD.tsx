@@ -6,21 +6,21 @@ import {
   import Link from "next/link";
   
   
-  const BufferOverflowCard = () => {
+  const AttackingADCard = () => {
     return (
-      <Link href="/modules/buffer-overflow">
+      <Link href="/modules/ad-privesc">
         <Stack direction="row" spacing={2}>
-        <img src="/buffcard.png" width={100} height={100}  />
+          <img src="/adcard.png" width={100} height={100}  />
           <Grid>
             <Typography sx={{
                 color: "primary.main",
               }} variant="h5">
-              Buffer Overflow
+              Attacking Active Directory
             </Typography>
             <Typography sx={{
                 color: "primary.main",
               }}>
-              Buffer overflow is a software vulnerability where a program writes data beyond the boundaries of a fixed-size buffer. This can lead to overwriting adjacent memory, potentially causing crashes, unauthorized access, or execution of arbitrary code. 
+              Active Directory is a directory service developed by Microsoft. It provides centralized management and authentication for network resources in a Windows domain environment. 
             </Typography>
           </Grid>
         </Stack>
@@ -28,5 +28,5 @@ import {
     );
   };
   
-  export default BufferOverflowCard;
+  export default AttackingADCard;
   

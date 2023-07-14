@@ -6,21 +6,21 @@ import {
   import Link from "next/link";
   
   
-  const BufferOverflowCard = () => {
+  const CSRF = () => {
     return (
-      <Link href="/modules/buffer-overflow">
+      <Link href="/modules/csrf">
         <Stack direction="row" spacing={2}>
-        <img src="/buffcard.png" width={100} height={100}  />
+            <img src="/csrf.png" width={100} height={100}  />
           <Grid>
             <Typography sx={{
                 color: "primary.main",
               }} variant="h5">
-              Buffer Overflow
+              CSRF
             </Typography>
             <Typography sx={{
                 color: "primary.main",
               }}>
-              Buffer overflow is a software vulnerability where a program writes data beyond the boundaries of a fixed-size buffer. This can lead to overwriting adjacent memory, potentially causing crashes, unauthorized access, or execution of arbitrary code. 
+              Cross-Site Request Forgery (CSRF) is an attack that tricks a victim into executing unwanted actions on a web application in which they are authenticated. 
             </Typography>
           </Grid>
         </Stack>
@@ -28,5 +28,5 @@ import {
     );
   };
   
-  export default BufferOverflowCard;
+  export default CSRF;
   

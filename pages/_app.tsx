@@ -5,17 +5,9 @@ import { AppProps } from "next/app";
 import CssBaseline from "@mui/material/CssBaseline";
 import Head from "next/head";
 import { useEffect } from 'react';
-import { initGA, logPageView } from '../files/analytics.js';
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
-
-  useEffect(() => {
-    if (!(window as any).GA_INITIALIZED) {
-      initGA();
-      (window as any).GA_INITIALIZED = true;
-    }
-    logPageView();
-  }, []);
 
   return (
     <>
@@ -25,6 +17,18 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
+        <Script
+    strategy="afterInteractive"
+    src={`https://www.googletagmanager.com/gtag/js?id=G-P3S8Q6NMY4`}
+/>
+<Script id="google-analytics" strategy="afterInteractive">
+    {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P3S8Q6NMY4');
+    `}
+</Script>
         <Component {...pageProps} />
       </ThemeProvider>
     </>

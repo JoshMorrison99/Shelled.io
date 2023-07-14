@@ -15,8 +15,8 @@ import {
   
   const WindowsCard = () => {
     return (
-    <Link href="/modules/windows-privesc">
-      <Stack direction="row">
+    <Link href="/modules/attacking-ad">
+      <Stack direction="row" spacing={2}>
       <img src="/windowscard.png" width={100} height={100}  />
         <Grid>
           <Typography sx={{
