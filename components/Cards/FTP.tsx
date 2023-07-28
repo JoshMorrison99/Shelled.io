@@ -7,7 +7,7 @@ import {
   
   const FTP = () => {
     return (
-      <a href="/modules/ftp">
+      <a href="/modules/ftp.html">
         <Stack direction="row" spacing={2}>
             <img src="/ftp.png" width={100} height={100}  />
           <Grid>

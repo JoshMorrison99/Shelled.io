@@ -7,7 +7,7 @@ import {
   
   const BufferOverflowCard = () => {
     return (
-      <a href="/modules/buffer-overflow">
+      <a href="/modules/buffer-overflow.html">
         <Stack direction="row" spacing={2}>
         <img src="/buffcard.png" width={100} height={100}  />
           <Grid>

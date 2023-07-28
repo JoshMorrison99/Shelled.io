@@ -7,7 +7,7 @@ import {
   
   const File_Transfer = () => {
     return (
-      <a href="/modules/file-transfer">
+      <a href="/modules/file-transfer.html">
         <Stack direction="row" spacing={2}>
             <img src="/filetransfer.png" width={100} height={100}  />
           <Grid>

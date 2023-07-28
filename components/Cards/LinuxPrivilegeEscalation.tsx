@@ -7,7 +7,7 @@ import {
   
   const LinuxCard = () => {
     return (
-      <a href="/modules/linux-privesc">
+      <a href="/modules/linux-privesc.html">
         <Stack direction="row" spacing={2}>
         <img src="/linuxcard.png" width={100} height={100}  />
           <Grid>

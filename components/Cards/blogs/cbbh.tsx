@@ -7,7 +7,7 @@ import {
   
   const CBBH_CARD = () => {
     return (
-      <a href="/blogs/cbbh">
+      <a href="/blogs/cbbh.html">
         <Stack direction="row" spacing={2}>
             <img src="/htb.png" width={100} height={100}  />
           <Grid>

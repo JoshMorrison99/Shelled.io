@@ -7,7 +7,7 @@ import {
   
   const Command_Injection = () => {
     return (
-      <a href="/modules/command-injection">
+      <a href="/modules/command-injection.html">
         <Stack direction="row" spacing={2}>
             <img src="/commandinjection.png" width={100} height={100}  />
           <Grid>

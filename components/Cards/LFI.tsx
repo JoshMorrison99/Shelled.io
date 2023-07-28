@@ -7,7 +7,7 @@ import {
   
   const LFI = () => {
     return (
-      <a href="/modules/lfi">
+      <a href="/modules/lfi.html">
         <Stack direction="row" spacing={2}>
             <img src="/lfi.png" width={100} height={100}  />
           <Grid>

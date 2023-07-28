@@ -7,7 +7,7 @@ import {
   
   const RedCard = () => {
     return (
-      <a href="/writeups/thm/red">
+      <a href="/writeups/thm/red.html">
         <Stack direction="row" spacing={2}>
             <img src="/red.png" width={100} height={100}  />
           <Grid>

@@ -7,7 +7,7 @@ import {
   
   const SQL_Injection_Where_Clause = () => {
     return (
-      <a href="/writeups/portswigger/sql-injection-in-where-clause">
+      <a href="/writeups/portswigger/sql-injection-in-where-clause.html">
         <Stack direction="row" spacing={2}>
             <img src="/portswigger.png" width={100} height={100}  />
           <Grid>

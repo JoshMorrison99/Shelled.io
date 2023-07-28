@@ -22,6 +22,7 @@ import SQL_Injection_Where_Clause from "../components/Cards/writeups/portswigger
 import SQL_Injection_Login_Bypass from "../components/Cards/writeups/portswigger/sql-injection-login-bypass";
 import FTP from "../components/Cards/FTP";
 import CBBH_CARD from "../components/Cards/blogs/cbbh";
+import MSSQL from "../components/Cards/MSSQL";
 
 const Home = () => {
   return (
@@ -101,6 +102,9 @@ const Home = () => {
             </Grid>
             <Grid item xs={6}>
               <FTP/>
+            </Grid>
+            <Grid item xs={6}>
+              <MSSQL/>
             </Grid>
             
           </Grid>

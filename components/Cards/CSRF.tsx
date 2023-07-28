@@ -7,7 +7,7 @@ import {
   
   const CSRF = () => {
     return (
-      <a href="/modules/csrf">
+      <a href="/modules/csrf.html">
         <Stack direction="row" spacing={2}>
             <img src="/csrf.png" width={100} height={100}  />
           <Grid>

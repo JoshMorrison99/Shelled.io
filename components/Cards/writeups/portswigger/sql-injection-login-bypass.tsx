@@ -7,7 +7,7 @@ import {
   
   const SQL_Injection_Login_Bypass = () => {
     return (
-      <a href="/writeups/portswigger/sql-injection-login-bypass">
+      <a href="/writeups/portswigger/sql-injection-login-bypass.html">
         <Stack direction="row" spacing={2}>
             <img src="/portswigger.png" width={100} height={100}  />
           <Grid>
