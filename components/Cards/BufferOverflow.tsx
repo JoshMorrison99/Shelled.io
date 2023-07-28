@@ -3,12 +3,11 @@ import {
     Stack,
     Grid,
   } from "@mui/material";
-  import Link from "next/link";
   
   
   const BufferOverflowCard = () => {
     return (
-      <Link href="/modules/buffer-overflow">
+      <a href="/modules/buffer-overflow">
         <Stack direction="row" spacing={2}>
         <img src="/buffcard.png" width={100} height={100}  />
           <Grid>
@@ -24,7 +23,7 @@ import {
             </Typography>
           </Grid>
         </Stack>
-      </Link>
+      </a>
     );
   };
   

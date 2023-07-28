@@ -8,7 +8,7 @@ import {
   
   const AttackingADCard = () => {
     return (
-      <Link href="/modules/ad-privesc">
+      <a href="/modules/ad-privesc">
         <Stack direction="row" spacing={2}>
           <img src="/adcard.png" width={100} height={100}  />
           <Grid>
@@ -24,7 +24,7 @@ import {
             </Typography>
           </Grid>
         </Stack>
-      </Link>
+      </a>
     );
   };
   

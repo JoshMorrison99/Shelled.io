@@ -1,21 +1,13 @@
 import {
     Typography,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    Box,
-    CardMedia,
-    Card,
-    CardContent,
     Stack,
     Grid,
   } from "@mui/material";
-  import Link from "next/link";
   
   
   const WindowsCard = () => {
     return (
-    <Link href="/modules/attacking-ad">
+    <a href="/modules/attacking-ad">
       <Stack direction="row" spacing={2}>
       <img src="/windowscard.png" width={100} height={100}  />
         <Grid>
@@ -31,7 +23,7 @@ import {
           </Typography>
         </Grid>
       </Stack>
-      </Link>
+      </a>
     );
   };
   

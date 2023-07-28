@@ -7,6 +7,9 @@ import {
   } from "@mui/material";
   import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
   import SyntaxHighlighter from "react-syntax-highlighter";
+  import TreeView from '@mui/lab/TreeView';
+  import { TreeItem } from "@mui/lab";
+  import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   
   interface IProps {
     title: string;
@@ -49,6 +52,20 @@ import {
                 "email=test%40test.com&csrf=EFd9BZX3mI6LgxnzJgaa42YMHORbcVBB"}
             </SyntaxHighlighter>
             </Typography>
+            <Box pt={5}></Box>
+            <TreeView
+              aria-label="file system navigator"
+              defaultCollapseIcon={<ExpandMoreIcon />}
+              defaultExpandIcon={<ChevronRightIcon />}
+              sx={{ height: "fit-content", flexGrow: 1, maxWidth: 400, overflowY: 'auto', color: '#000000' }}
+            >
+              <TreeItem nodeId="1" label="Reports">
+                <a href="https://hackerone.com/reports/994504" target="_blank">
+                  <TreeItem nodeId="2" label="994504" />
+                </a>
+                
+              </TreeItem>
+            </TreeView>
           </AccordionDetails>
         </Accordion>
       </>

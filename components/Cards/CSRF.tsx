@@ -3,12 +3,11 @@ import {
     Stack,
     Grid,
   } from "@mui/material";
-  import Link from "next/link";
   
   
   const CSRF = () => {
     return (
-      <Link href="/modules/csrf">
+      <a href="/modules/csrf">
         <Stack direction="row" spacing={2}>
             <img src="/csrf.png" width={100} height={100}  />
           <Grid>
@@ -24,7 +23,7 @@ import {
             </Typography>
           </Grid>
         </Stack>
-      </Link>
+      </a>
     );
   };
   

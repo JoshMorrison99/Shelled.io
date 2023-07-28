@@ -3,12 +3,11 @@ import {
     Stack,
     Grid,
   } from "@mui/material";
-  import Link from "next/link";
   
   
   const LinuxCard = () => {
     return (
-      <Link href="/modules/linux-privesc">
+      <a href="/modules/linux-privesc">
         <Stack direction="row" spacing={2}>
         <img src="/linuxcard.png" width={100} height={100}  />
           <Grid>
@@ -24,7 +23,7 @@ import {
             </Typography>
           </Grid>
         </Stack>
-      </Link>
+      </a>
     );
   };
   

@@ -7,12 +7,16 @@ import {
   } from "@mui/material";
   import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
   import SyntaxHighlighter from "react-syntax-highlighter";
+  import TreeView from '@mui/lab/TreeView';
+import { TreeItem } from "@mui/lab";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   
   interface IProps {
     title: string;
   }
   
   const CSRF_Exists_Parameter = ({ title }: IProps) => {
+
     return (
       <>
         {" "}
@@ -33,7 +37,7 @@ import {
               }}
             >
               <Typography>
-              Check if the CSRF token is being checked if there is no CSRF value. 
+              Check if the CSRF token is being checked if there is no CSRF parameter. 
               </Typography>
               <SyntaxHighlighter className="syntax" language="bash">
               {"POST /my-account/change-email HTTP/1.1\n" +
@@ -49,11 +53,26 @@ import {
                 "email=test%40test.com"}
             </SyntaxHighlighter>
             </Typography>
+            <Box pt={5}></Box>
+            <TreeView
+              aria-label="file system navigator"
+              defaultCollapseIcon={<ExpandMoreIcon />}
+              defaultExpandIcon={<ChevronRightIcon />}
+              sx={{ height: "fit-content", flexGrow: 1, maxWidth: 400, overflowY: 'auto', color: '#000000' }}
+            >
+              <TreeItem nodeId="1" label="Reports">
+                <a href="https://hackerone.com/reports/1049360" target="_blank">
+                  <TreeItem nodeId="2" label="1049360" />
+                </a>
+                
+              </TreeItem>
+            </TreeView>
           </AccordionDetails>
         </Accordion>
       </>
     );
   };
+
   
   export default CSRF_Exists_Parameter;
   

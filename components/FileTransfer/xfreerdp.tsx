@@ -7,12 +7,16 @@ import {
   } from "@mui/material";
   import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
   import SyntaxHighlighter from "react-syntax-highlighter";
+  import TreeView from '@mui/lab/TreeView';
+import { TreeItem } from "@mui/lab";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   
   interface IProps {
     title: string;
   }
   
-  const CSRF_Exists = ({ title }: IProps) => {
+  const FT_xfreerdp = ({ title }: IProps) => {
+
     return (
       <>
         {" "}
@@ -32,28 +36,37 @@ import {
                 color: "primary.main",
               }}
             >
+              <Typography variant="h6">
+              Description
+              </Typography>
               <Typography>
-              Check if the CSRF token is being checked if there is no CSRF value. 
+              You can mount your drive to the VM and access is from `This PC`
+              </Typography>
+              <Box pt={5}></Box>
+              <Typography variant="h6">
+              Step 1 - Linux
               </Typography>
               <SyntaxHighlighter className="syntax" language="bash">
-              {"POST /my-account/change-email HTTP/1.1\n" +
-                "Host: target.com\n" +
-                "Cookie: session=S97qjrvFPqdndlqAidWFbHCldtb2RFP8;\n" +
-                "email=test%40test.com&csrf=EFd9BZX3mI6LgxnzJgaa42YMHORbcVBA"}
-            </SyntaxHighlighter>
-            <Box pt={5}></Box>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {"POST /my-account/change-email HTTP/1.1\n" +
-                "Host: target.com\n" +
-                "Cookie: session=S97qjrvFPqdndlqAidWFbHCldtb2RFP8;\n" +
-                "email=test%40test.com&csrf="}
+              {'xfreerdp /u:thm /p:Password /v:10.10.123.123 /workspace /home-drive'}
             </SyntaxHighlighter>
             </Typography>
+            <Box pt={5}></Box>
+            <TreeView
+              aria-label="file system navigator"
+              defaultCollapseIcon={<ExpandMoreIcon />}
+              defaultExpandIcon={<ChevronRightIcon />}
+              sx={{ height: "fit-content", flexGrow: 1, maxWidth: 400, overflowY: 'auto', color: '#000000' }}
+            >
+              <TreeItem nodeId="1" label="Resources">
+                
+              </TreeItem>
+            </TreeView>
           </AccordionDetails>
         </Accordion>
       </>
     );
   };
+
   
-  export default CSRF_Exists;
+  export default FT_xfreerdp;
   
