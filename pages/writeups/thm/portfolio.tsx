@@ -1,6 +1,6 @@
 import { Container, Divider, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
-import styles from "../../styles/Home.module.css";
+import styles from "../../../styles/Home.module.css";
 import React, { useState } from "react";
 
 const Home = () => {
