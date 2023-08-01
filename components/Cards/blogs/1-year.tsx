@@ -5,22 +5,21 @@ import {
   } from "@mui/material";
   
   
-  
-  const MSSQL = () => {
+  const ONE_YEAR = () => {
     return (
-      <a href="/modules/mssql.html">
+      <a href="/blogs/1-year.html">
         <Stack direction="row" spacing={2}>
-            <img src="/mssql.png" width={100} height={100}  />
+            <img src="/work.png" width={100} height={100}  />
           <Grid>
             <Typography sx={{
                 color: "primary.main",
               }} variant="h5">
-              Attacking MSSQL (1433)
+              1'st Year Working in Cyber Security
             </Typography>
             <Typography sx={{
                 color: "primary.main",
               }}>
-              MSSQL is a RDBMS developed by Microsoft. MSSQL is Microsoft's version of MySQL.
+              This blog post is a quick overview of things that I learned in my first year of working in cyber security.
             </Typography>
           </Grid>
         </Stack>
@@ -28,5 +27,5 @@ import {
     );
   };
   
-  export default MSSQL;
+  export default ONE_YEAR;
   

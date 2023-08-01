@@ -15,7 +15,13 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
     title: string;
   }
   
-  const MSSQL_List_Tables = ({ title }: IProps) => {
+  const SMTP_QUIT = ({ title }: IProps) => {
+
+    const syntax = `
+    QUIT
+    221 goodbye
+    Connection closed by foreign host.
+    `
 
     return (
       <>
@@ -36,20 +42,18 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
                 color: "primary.main",
               }}
             >
-              <Box pt={5} />
+                <Box pt={5} />
               <Typography variant="h6">
                     Description
                 </Typography>
-
-
               <Typography>
-              To list tables in MSSQL.
+              The SMTP (Simple Mail Transfer Protocol) command "QUIT" is used to terminate an SMTP session gracefully. When a client (email server or client) sends the QUIT command to the SMTP server, it indicates that the client has finished sending email messages and wants to close the connection.
                </Typography>
                <Box pt={5} />
-              <SyntaxHighlighter className="syntax" language="ftp">
-              {"select table_name from {DB_NAME}.INFORMATION_SCHEMA.TABLES;"}
+               <SyntaxHighlighter className="syntax" language="bash">
+              {syntax}
             </SyntaxHighlighter>
-            
+               <Box pt={5} />
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -58,5 +62,5 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   };
 
   
-  export default MSSQL_List_Tables;
+  export default SMTP_QUIT;
   

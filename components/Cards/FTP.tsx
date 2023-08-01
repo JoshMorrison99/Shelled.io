@@ -14,7 +14,7 @@ import {
             <Typography sx={{
                 color: "primary.main",
               }} variant="h5">
-              Attacking FTP
+              Attacking FTP (21)
             </Typography>
             <Typography sx={{
                 color: "primary.main",

@@ -15,7 +15,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
     title: string;
   }
   
-  const MSSQL_List_Tables = ({ title }: IProps) => {
+  const SMB_List_Shares_Unauth = ({ title }: IProps) => {
 
     return (
       <>
@@ -41,15 +41,23 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
                     Description
                 </Typography>
 
-
               <Typography>
-              To list tables in MSSQL.
+              There are many different tools used to list SMB shares.
                </Typography>
-               <Box pt={5} />
-              <SyntaxHighlighter className="syntax" language="ftp">
-              {"select table_name from {DB_NAME}.INFORMATION_SCHEMA.TABLES;"}
+               <Box pt={5}></Box>
+               <Typography>
+              smbmap
+               </Typography>
+              <SyntaxHighlighter className="syntax" language="bash">
+              {"smbmap -H 10.129.14.128"}
             </SyntaxHighlighter>
-            
+            <Box pt={5}></Box>
+            <Typography>
+              smbclient
+               </Typography>
+              <SyntaxHighlighter className="syntax" language="bash">
+              {"smbclient -N -L //10.129.14.128"}
+            </SyntaxHighlighter>
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -58,5 +66,5 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   };
 
   
-  export default MSSQL_List_Tables;
+  export default SMB_List_Shares_Unauth;
   

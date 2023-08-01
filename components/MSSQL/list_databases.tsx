@@ -15,7 +15,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
     title: string;
   }
   
-  const MSSQL_List_Tables = ({ title }: IProps) => {
+  const MSSQL_List_Databases = ({ title }: IProps) => {
 
     return (
       <>
@@ -43,14 +43,22 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 
               <Typography>
-              To list tables in MSSQL.
+              To list databases in MSSQL.
                </Typography>
                <Box pt={5} />
               <SyntaxHighlighter className="syntax" language="ftp">
-              {"select table_name from {DB_NAME}.INFORMATION_SCHEMA.TABLES;"}
+              {"SELECT name FROM master.dbo.sysdatabases"}
             </SyntaxHighlighter>
-            
+            <Box pt={5}></Box>
+
+              <Typography>
+              Using mssqlclient.py
+               </Typography>
+              <SyntaxHighlighter className="syntax" language="ftp">
+              {"enum_db"}
+            </SyntaxHighlighter>
             </Typography>
+            <Box pt={5}></Box>
           </AccordionDetails>
         </Accordion>
       </>
@@ -58,5 +66,5 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   };
 
   
-  export default MSSQL_List_Tables;
+  export default MSSQL_List_Databases;
   

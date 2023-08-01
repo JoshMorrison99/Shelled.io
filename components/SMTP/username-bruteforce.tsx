@@ -15,7 +15,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
     title: string;
   }
   
-  const MSSQL_List_Tables = ({ title }: IProps) => {
+  const SMTP_Username_Bruteforce = ({ title }: IProps) => {
 
     return (
       <>
@@ -40,16 +40,29 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
               <Typography variant="h6">
                     Description
                 </Typography>
-
-
               <Typography>
-              To list tables in MSSQL.
+              There are multiple tools that can be used to enumerate username of an SMTP server.
                </Typography>
-               <Box pt={5} />
-              <SyntaxHighlighter className="syntax" language="ftp">
-              {"select table_name from {DB_NAME}.INFORMATION_SCHEMA.TABLES;"}
+               <Box pt={5}/>
+               <Typography>
+               smtp-user-enum
+               </Typography>
+              <SyntaxHighlighter className="syntax" language="bash">
+              {"smtp-user-enum -M RCPT -U users.list -D inlanefreight.htb -t 10.129.68.69"}
             </SyntaxHighlighter>
-            
+            <Box pt={2}/>
+            <Typography>
+               -M is for the "Mode". The options are RCPT, EXPN, or VRFY.
+               </Typography>
+            <Typography>
+               -U is for the list is usernames.
+               </Typography>
+               <Typography>
+               -D is for the domain
+               </Typography>
+               <Typography>
+               -t is for the target
+               </Typography>
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -58,5 +71,5 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   };
 
   
-  export default MSSQL_List_Tables;
+  export default SMTP_Username_Bruteforce;
   

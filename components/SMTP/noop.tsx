@@ -15,7 +15,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
     title: string;
   }
   
-  const MSSQL_List_Tables = ({ title }: IProps) => {
+  const SMTP_NOOP = ({ title }: IProps) => {
 
     return (
       <>
@@ -36,20 +36,18 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
                 color: "primary.main",
               }}
             >
-              <Box pt={5} />
+                <Box pt={5} />
               <Typography variant="h6">
                     Description
                 </Typography>
-
-
               <Typography>
-              To list tables in MSSQL.
+              The SMTP (Simple Mail Transfer Protocol) command "NOOP" stands for "No Operation." It is a command used to perform a null operation, meaning it doesn't have any real functionality other than keeping the connection alive and checking if the server is still responding.
+               </Typography>
+               <Box pt={3} />
+               <Typography>
+               The primary purpose of the NOOP command is to serve as a kind of "ping" or "heartbeat" between the client (email server or client) and the server (email server) during an SMTP session. When a client sends the NOOP command, the server will respond with a success code (usually 250 OK) to indicate that it has received the command successfully.
                </Typography>
                <Box pt={5} />
-              <SyntaxHighlighter className="syntax" language="ftp">
-              {"select table_name from {DB_NAME}.INFORMATION_SCHEMA.TABLES;"}
-            </SyntaxHighlighter>
-            
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -58,5 +56,5 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   };
 
   
-  export default MSSQL_List_Tables;
+  export default SMTP_NOOP;
   

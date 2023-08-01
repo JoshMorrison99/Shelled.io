@@ -5,22 +5,21 @@ import {
   } from "@mui/material";
   
   
-  
-  const MSSQL = () => {
+  const SMTP = () => {
     return (
-      <a href="/modules/mssql.html">
+      <a href="/modules/smtp.html">
         <Stack direction="row" spacing={2}>
-            <img src="/mssql.png" width={100} height={100}  />
+            <img src="/smtp.png" width={100} height={100}  />
           <Grid>
             <Typography sx={{
                 color: "primary.main",
               }} variant="h5">
-              Attacking MSSQL (1433)
+              Attacking SMTP (25)
             </Typography>
             <Typography sx={{
                 color: "primary.main",
               }}>
-              MSSQL is a RDBMS developed by Microsoft. MSSQL is Microsoft's version of MySQL.
+              When we press the `Send` button in our email application (email client), the program establishes a connection to an `SMTP` server on the network or Internet.
             </Typography>
           </Grid>
         </Stack>
@@ -28,5 +27,5 @@ import {
     );
   };
   
-  export default MSSQL;
+  export default SMTP;
   

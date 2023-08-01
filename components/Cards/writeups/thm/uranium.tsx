@@ -5,22 +5,21 @@ import {
   } from "@mui/material";
   
   
-  
-  const MSSQL = () => {
+  const UraniumCard = () => {
     return (
-      <a href="/modules/mssql.html">
+      <a href="/writeups/thm/uranium.html">
         <Stack direction="row" spacing={2}>
-            <img src="/mssql.png" width={100} height={100}  />
+            <img src="/uranium.jpeg" width={100} height={100}  />
           <Grid>
             <Typography sx={{
                 color: "primary.main",
               }} variant="h5">
-              Attacking MSSQL (1433)
+              Uranium
             </Typography>
             <Typography sx={{
                 color: "primary.main",
               }}>
-              MSSQL is a RDBMS developed by Microsoft. MSSQL is Microsoft's version of MySQL.
+              Uranium is a "Hard" rated machine that has an interesting foothold which involves sending a reverse shell payload via an email over SMTP port 25.
             </Typography>
           </Grid>
         </Stack>
@@ -28,5 +27,5 @@ import {
     );
   };
   
-  export default MSSQL;
+  export default UraniumCard;
   

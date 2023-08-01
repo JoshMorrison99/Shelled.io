@@ -28,7 +28,7 @@ const cbbh = () => {
                     The Bug Bounty Hunter Job Role Path is for individuals who want to enter the world of Bug Bounty Hunting with little to no prior experience. This path covers core web application security assessment and bug bounty hunting concepts and provides a deep understanding of the attack tactics used during bug bounty hunting. Armed with the necessary theoretical background, multiple practical exercises, and a proven bug bounty hunting methodology, students will go through all bug bounty hunting stages, from reconnaissance and bug identification to exploitation, documentation, and communication to vendors/programs. Upon completing this job role path, you will have become proficient in the most common bug bounty hunting and attack techniques against web applications and be in the position of professionally reporting bugs to a vendor.
                     </Typography>
                     <Box mt={5}/>
-                    <img src="/cbbh.png" width={1326/1.2} height={940/1.2}  />
+                    <img src="/cbbh.png" style={{width: "100%", height: "100%"}}  />
                     <Box mt={5}/>
                     <Typography>
                     The course has 20 modules:

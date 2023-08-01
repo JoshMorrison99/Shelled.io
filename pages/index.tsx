@@ -23,6 +23,13 @@ import SQL_Injection_Login_Bypass from "../components/Cards/writeups/portswigger
 import FTP from "../components/Cards/FTP";
 import CBBH_CARD from "../components/Cards/blogs/cbbh";
 import MSSQL from "../components/Cards/MSSQL";
+import SMB from "../components/Cards/SMB";
+import SMTP from "../components/Cards/SMTP";
+import RDP from "../components/Cards/RDP";
+import ONE_YEAR from "../components/Cards/blogs/1-year";
+import DOM_XSS_using_web_messages_and_a_JavaScript_URL from "../components/Cards/writeups/portswigger/dom-xss-using-web-messages-and-a-javascript-url";
+import DOM_XSS_using_web_messages from "../components/Cards/writeups/portswigger/dom-xss-using-web-messages";
+import UraniumCard from "../components/Cards/writeups/thm/uranium";
 
 const Home = () => {
   return (
@@ -57,16 +64,16 @@ const Home = () => {
             </Typography>
           </Box>
           <Grid container spacing={4}>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <CSRF />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <LFI/>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <Command_Injection/>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <SQLInjection/>
             </Grid>
             
@@ -85,26 +92,35 @@ const Home = () => {
             </Typography>
           </Box>
           <Grid container spacing={4}>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <LinuxCard />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <WindowsCard />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <BufferOverflowCard />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <AttackingADCard />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <File_Transfer/>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <FTP/>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <MSSQL/>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <SMB/>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <SMTP/>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <RDP/>
             </Grid>
             
           </Grid>
@@ -122,14 +138,23 @@ const Home = () => {
             </Typography>
           </Box>
           <Grid container spacing={4}>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <RedCard />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <SQL_Injection_Where_Clause/>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <SQL_Injection_Login_Bypass/>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <DOM_XSS_using_web_messages_and_a_JavaScript_URL/>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <DOM_XSS_using_web_messages/>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <UraniumCard/>
             </Grid>
           </Grid>
           <Box display="flex"
@@ -145,8 +170,11 @@ const Home = () => {
               Blogs
             </Typography>
             <Grid container spacing={4}>
-              <Grid item xs={6}>
+              <Grid item xs={12} sm={6}>
                 <CBBH_CARD/>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <ONE_YEAR/>
               </Grid>
             </Grid>
           </Box>

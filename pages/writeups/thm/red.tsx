@@ -112,7 +112,7 @@ const THM_RED = () => {
                     <SyntaxHighlighter className="syntax" language="text">
                         {"http://<10.10.85.169>/index.php?page=home.html"}
                     </SyntaxHighlighter>
-                    <img src="/thm_red_1.png" width={1592 / 1.4} height={797 / 1.4} />
+                    <img src="/thm_red_1.png" style={{width: "100%", height: "100%"}} />
                     <Typography mt={4} variant="h5">
                         LFI Vulnerability
                     </Typography>
@@ -122,7 +122,7 @@ const THM_RED = () => {
                     <SyntaxHighlighter className="syntax" language="text">
                         {"GET /index.php?page=php://filter/read=convert.base64-encode/resource=/etc/passwd HTTP/1.1"}
                     </SyntaxHighlighter>
-                    <img src="/thm_red_2.png" width={924} height={259} />
+                    <img src="/thm_red_2.png" style={{width: "100%", height: "100%"}} />
                     <SyntaxHighlighter className="syntax" language="text">
                         {etc_passwd}
                     </SyntaxHighlighter>
@@ -166,7 +166,7 @@ const THM_RED = () => {
                     <SyntaxHighlighter className="syntax" language="bash">
                         {"hydra -l blue -P passlist.txt ssh://10.10.85.169"}
                     </SyntaxHighlighter>
-                    <img src="/thm_red_3.png" width={780} height={284} />
+                    <img src="/thm_red_3.png" style={{width: "100%", height: "100%"}}  />
                     <Typography>
                         Hydra found the password is `sup3r_p@s$w0!`.
                     </Typography>
@@ -180,7 +180,7 @@ const THM_RED = () => {
                     <Typography>
                         Red keeps killing my shell.
                     </Typography>
-                    <img src="/thm_red_4.png" width={546} height={104} />
+                    <img src="/thm_red_4.png" style={{width: "100%", height: "100%"}}  />
                     <Box pt={5} />
                     <Typography>
                         Lets investigate by checking all the running processes owned by red.
@@ -188,7 +188,7 @@ const THM_RED = () => {
                     <SyntaxHighlighter className="syntax" language="bash">
                         {"ps aux | grep red"}
                     </SyntaxHighlighter>
-                    <img src="/thm_red_5.png" width={1041 / 1.4} height={110 / 1.4} />
+                    <img src="/thm_red_5.png" style={{width: "100%", height: "100%"}}  />
                     <Box pt={5} />
                     <Typography>
                         What is the command doing?
@@ -209,7 +209,7 @@ const THM_RED = () => {
                     <Typography>
                         When we print the /etc/hosts file we see that there is a domain being resolved from the private IP address 192.168.0.1.
                     </Typography>
-                    <img src="/thm_red_6.png" width={523} height={203} />
+                    <img src="/thm_red_6.png" style={{width: "100%", height: "100%"}}  />
                     <Typography>
                         <Box pt={5} />
                         Lets try to get a reverse shell by using our attacker IP as the domain to resolve to. When editing the `/etc/hosts` file it will not work although we can write to it.
@@ -330,7 +330,7 @@ const THM_RED = () => {
                             <a href="https://github.com/joeammond/CVE-2021-4034">https://github.com/joeammond/CVE-2021-4034</a>
                         </li>
                     </ul>
-                    <img src="/thm_red_7.png" width={384} height={207} />
+                    <img src="/thm_red_7.png" style={{width: "100%", height: "100%"}}  />
                     <Box pt={25}/>
                 </Typography>
 
