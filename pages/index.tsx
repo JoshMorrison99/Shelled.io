@@ -30,6 +30,8 @@ import ONE_YEAR from "../components/Cards/blogs/1-year";
 import DOM_XSS_using_web_messages_and_a_JavaScript_URL from "../components/Cards/writeups/portswigger/dom-xss-using-web-messages-and-a-javascript-url";
 import DOM_XSS_using_web_messages from "../components/Cards/writeups/portswigger/dom-xss-using-web-messages";
 import UraniumCard from "../components/Cards/writeups/thm/uranium";
+import PIVOT from "../components/Cards/Pivot";
+import MySQL from "../components/Cards/MySQL";
 
 const Home = () => {
   return (
@@ -114,6 +116,9 @@ const Home = () => {
               <MSSQL/>
             </Grid>
             <Grid item xs={12} sm={6}>
+              <MySQL/>
+            </Grid>
+            <Grid item xs={12} sm={6}>
               <SMB/>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -121,6 +126,9 @@ const Home = () => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <RDP/>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <PIVOT/>
             </Grid>
             
           </Grid>

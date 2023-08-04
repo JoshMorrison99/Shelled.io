@@ -12,13 +12,14 @@ import MSSQL_List_Content from "../../components/MSSQL/list_content";
 import MSSQL_Change_Database from "../../components/MSSQL/change_database";
 import MSSQL_Code_Execution from "../../components/MSSQL/code_execution";
 import MSSQL_NTLM from "../../components/MSSQL/ntlmv2_hash";
-import BruteForce from "../../components/ActiveDirectoryFootholds/BruteForce";
-import MSSQL_Bruteforce from "../../components/MSSQL/bruteforce";
-import MSSQL_Fileread from "../../components/MSSQL/file_read";
-import MSSQL_Impersonate from "../../components/MSSQL/impersonate";
-import MSSQL_Linked_Databases from "../../components/MSSQL/linked_databases";
+import MySQL_Connect from "../../components/MySQL/connecting";
+import MySQL_List_Databases from "../../components/MySQL/list_databases";
+import MySQL_List_Tables from "../../components/MySQL/list_tables";
+import MySQL_List_Content from "../../components/MySQL/list_content";
+import MySQL_Bruteforce from "../../components/MySQL/bruteforce";
+import MySQL_Fileread from "../../components/MySQL/file_read";
   
-  const MSSQL = () => {
+  const MySQL = () => {
     return (
       <Box
         className={styles.container}
@@ -31,7 +32,7 @@ import MSSQL_Linked_Databases from "../../components/MSSQL/linked_databases";
         >
           
           <Typography className={styles.center} color="primary.main" variant="h2">
-           Attacking MSSQL
+           Attacking MySQL
           </Typography>
         </Box>
         <Container>
@@ -40,23 +41,20 @@ import MSSQL_Linked_Databases from "../../components/MSSQL/linked_databases";
               <Typography variant="h3" color="primary.main">
                 Criteria
               </Typography>
-              <MSSQL_Connect title="Connect to MSSQL"/>
-              <MSSQL_List_Databases title="List Databases"/>
-              <MSSQL_List_Tables title="List Tables"/>
-              <MSSQL_List_Content title="List Table Content"/>
-              <MSSQL_Change_Database title="Change Database"/>
+              <MySQL_Connect title="Connect"/>
+              <MySQL_List_Databases title="List Databases"/>
+              <MySQL_List_Tables title="List Tables"/>
+              <MySQL_List_Content title="List Content"/>
+
             </Box>
           </Box>
             <Box mb={1}>
               <Typography variant="h3" color="primary.main">
                 Attacks
               </Typography>
-              <MSSQL_Code_Execution title="Command Shell"/>
-              <MSSQL_NTLM title="Hash Capture"/>
-              <MSSQL_Bruteforce title="Password Bruteforce"/>
-              <MSSQL_Fileread title="File Read"/>
-              <MSSQL_Impersonate title="Impersonate"/>
-              <MSSQL_Linked_Databases title="Linked Database"/>
+              <MySQL_Bruteforce title="Password Bruteforce"/>
+              <MySQL_Fileread title="File Read"/>
+
             </Box>
             
             <Box sx={{ paddingBottom: "10vh" }}></Box>
@@ -67,5 +65,5 @@ import MSSQL_Linked_Databases from "../../components/MSSQL/linked_databases";
     );
   };
   
-  export default MSSQL;
+  export default MySQL;
   

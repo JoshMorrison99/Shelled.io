@@ -25,6 +25,7 @@ import FTP_Upload from "../../components/FTP/upload";
 import FTP_List from "../../components/FTP/list-files";
 import FTP_Anonymous from "../../components/FTP/anonymous";
 import FTP_Bruteforce from "../../components/FTP/bruteforce";
+import FTP_RCE from "../../components/FTP/ftp-2-rce";
 
 
   
@@ -62,6 +63,14 @@ import FTP_Bruteforce from "../../components/FTP/bruteforce";
               </Typography>
               <FTP_Anonymous title="Anonymous Login"/>
               <FTP_Bruteforce title="Bruteforce"/>
+            </Box>
+            
+            <Box sx={{ paddingBottom: "10vh" }}></Box>
+            <Box mb={1}>
+              <Typography variant="h3" color="primary.main">
+                FTP to RCE
+              </Typography>
+              <FTP_RCE title="Webshell Upload"/>
             </Box>
             
             <Box sx={{ paddingBottom: "10vh" }}></Box>

