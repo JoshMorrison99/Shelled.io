@@ -40,6 +40,7 @@ import CSRF_Referer_Header_Removed from "../../components/CSRF/referer-header-re
             </Box>
             <CSRF_SameSite title="SameSite Cookie Attribute" />
             <No_CSRF_Token title="No CSRF Token"/>
+            
             <Box sx={{ paddingBottom: "10vh" }}/>
 
             <Box mb={1}>

@@ -14,6 +14,7 @@ import SMB_List_Shares_Unauth from "../../components/SMB/list-shares-unauth";
 import SMB_List_Shares_Auth from "../../components/SMB/list-shared-auth";
 import SMB_Connect from "../../components/SMB/connect";
 import SMB_Connect_Commands from "../../components/SMB/smbclient";
+import SMB_LocalCMD from "../../components/SMB/local_cmd";
 
   
   const SMB = () => {
@@ -42,6 +43,7 @@ import SMB_Connect_Commands from "../../components/SMB/smbclient";
               <SMB_List_Shares_Auth title="List Shares (Authenticated)"/>
               <SMB_Connect title="Connect to Share"/>
               <SMB_Connect_Commands title="SMB Commands"/>
+              <SMB_LocalCMD title="Local Commands"/>
             </Box>
           </Box>
             <Box mb={1}>

@@ -37,7 +37,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
               }}
             >
               <Typography>
-               The /proc/self/environ file contains the environment variables of the current process. This file may contain sensitive information or be susceptible to log posioning.
+              The /proc/self directory is a special symbolic link that refers to the process directory of the current running process. The /proc/self/environ file contains the environment variables of the current process. This file may contain sensitive information or be susceptible to log posioning.
               </Typography>
             <Box pt={5}></Box>
             <Typography>

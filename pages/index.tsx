@@ -32,6 +32,21 @@ import DOM_XSS_using_web_messages from "../components/Cards/writeups/portswigger
 import UraniumCard from "../components/Cards/writeups/thm/uranium";
 import PIVOT from "../components/Cards/Pivot";
 import MySQL from "../components/Cards/MySQL";
+import AWS_Athena from "../components/Cards/aws/aws-athena";
+import AWS_Cloudtrail from "./aws/cloudtrail";
+import AWS_CloudTrail from "../components/Cards/aws/aws-cloudtrail";
+import AWS_Cognito_User from "../components/Cards/aws/aws-cognito-user-1";
+import AWS_Cognito_User_Pools from "./aws/cognito-user-pools-part-1";
+import AWS_Cognito_User_1 from "../components/Cards/aws/aws-cognito-user-1";
+import AWS_Cognito_User_2 from "../components/Cards/aws/aws-cognito-user-2";
+import AWS_Cognito_User_3 from "../components/Cards/aws/aws-cognito-user-3";
+import AWS_Cognito from "../components/Cards/AWS_Cognito";
+import IIS_TILDE_CARD_1 from "../components/Cards/blogs/iis-tilde-enumeration-1";
+import IIS_TILDE_CARD_2 from "../components/Cards/blogs/iis-tilde-enumeration-2";
+import IIS_Card from "../components/Cards/IIS";
+import IIS_TILDE_CARD_3 from "../components/Cards/blogs/iis-tilde-enumeration-3";
+import DigiNinja_Login_Card from "../components/Cards/writeups/other/digininja_login";
+import DigiNinja_Sender_Card from "../components/Cards/writeups/other/digininja_sender";
 
 const Home = () => {
   return (
@@ -78,14 +93,15 @@ const Home = () => {
             <Grid item xs={12} sm={6}>
               <SQLInjection/>
             </Grid>
+            <Grid item xs={12} sm={6}>
+              <AWS_Cognito/>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <IIS_Card/>
+            </Grid>
             
           </Grid>
-          <Box display="flex"
-            justifyContent="center"
-            alignItems="center"
-            mt={5}>
-            <Pagination count={10} color="primary" sx={{ button: { color: '#000000' } }} />
-          </Box>
+          
         </Box>
         <Box sx={{ paddingBottom: "10vh" }}>
           <Box mb={5}>
@@ -132,12 +148,7 @@ const Home = () => {
             </Grid>
             
           </Grid>
-          <Box display="flex"
-            justifyContent="center"
-            alignItems="center"
-            mt={5}>
-            <Pagination count={10} color="primary" sx={{ button: { color: '#000000' } }} />
-          </Box>
+         
         </Box>
         <Box sx={{ paddingBottom: "10vh" }}>
           <Box mb={5}>
@@ -164,13 +175,14 @@ const Home = () => {
             <Grid item xs={12} sm={6}>
               <UraniumCard/>
             </Grid>
+            <Grid item xs={12} sm={6}>
+              <DigiNinja_Login_Card/>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <DigiNinja_Sender_Card/>
+            </Grid>
           </Grid>
-          <Box display="flex"
-            justifyContent="center"
-            alignItems="center"
-            mt={5}>
-            <Pagination count={10} color="primary" sx={{ button: { color: '#000000' } }} />
-          </Box>
+         
         </Box>
         <Box sx={{ paddingBottom: "10vh" }}>
           <Box mb={5}>
@@ -184,16 +196,47 @@ const Home = () => {
               <Grid item xs={12} sm={6}>
                 <ONE_YEAR/>
               </Grid>
+              <Grid item xs={12} sm={6}>
+                <IIS_TILDE_CARD_1/>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <IIS_TILDE_CARD_2/>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <IIS_TILDE_CARD_3/>
+              </Grid>
             </Grid>
           </Box>
           <Grid container spacing={4}>
           </Grid>
-          <Box display="flex"
-            justifyContent="center"
-            alignItems="center"
-            mt={5}>
-            <Pagination count={10} color="primary" sx={{ button: { color: '#000000' } }} />
+          
+        </Box>
+        <Box sx={{ paddingBottom: "10vh" }}>
+          <Box mb={5}>
+            <Typography variant="h3" color="primary.main">
+              AWS
+            </Typography>
+            <Grid container spacing={4}>
+              <Grid item xs={12} sm={6}>
+                <AWS_Athena/>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <AWS_CloudTrail/>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <AWS_Cognito_User_1/>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <AWS_Cognito_User_2/>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <AWS_Cognito_User_3/>
+              </Grid>
+            </Grid>
           </Box>
+          <Grid container spacing={4}>
+          </Grid>
+          
         </Box>
       </Container>
     </Box>
